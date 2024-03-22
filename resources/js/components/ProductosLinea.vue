@@ -3,12 +3,17 @@
     <div class="indicador">
       <p>Inicio > Nosotros</p>
     </div>
+
+   
     <div class="productoslinea">
       <div class="productos" >
-        <div class="producto" v-for="producto in productos" :key="producto.id">
-          <img :src="'../../img/' + producto.imagen"  alt="imagen">
-          <p class="categoria">{{ producto.categoria }}</p>
-          <p class="nombre">{{ producto.nombre }}</p>
+        <div  v-for="producto in productos" :key="producto.id">
+          <div class="producto"> 
+            <img :src="'../../img/' + producto.imagen"  alt="imagen">
+            <p class="categoria">{{ producto.categoria }}</p>
+            <p class="nombre">{{ producto.nombre }}</p>
+
+          </div>
   
         </div>
   
@@ -40,30 +45,45 @@ export default {
 
 <style scoped>
 
+
+.productoslinea{
+  display: flex;
+  justify-content: center;
+}
 .nombre{
   font-size: 20px;
+  color: black;
+  text-align: start;
+
 }
 .categoria{
-  margin-top: 300px;
   font-size: 25px;
   font-weight: bold;
   color: #33447F;
+  text-align: start;
 }
 
+
 .productos{
-  margin-top: 100px;
-  margin-left: 50px;
-  width: 95%;
-  height: 1000px;
+  height: 900px;
   display: grid;
   grid-template-rows: repeat(2, 1fr 1fr);
   grid-template-columns: repeat(4, 400px);
-  gap: 50px;
+}
+
+.producto img{
+  width: 100%;
+  height: 250px;
 }
 .producto{
-  width: 400px;
-  height: 400px;
+  margin-top: 50px;
+  height: 350px;
+  padding: 10px;
+  background-color: white;
+  width: 280px;
   text-align: start;
+  color: #33447F;
+
 }
 
 .indicador{

@@ -129,7 +129,7 @@ export default {
 }
 .imgInfo img{
     width: 600px;
-    height: 600px;
+    height: 550px;
     filter: grayscale(100%); 
 }
 .imgInfo{
