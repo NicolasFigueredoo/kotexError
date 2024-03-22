@@ -3,7 +3,7 @@
     <div class="footer">
 
         <div class="logoRedes">
-            <img src="../../img/kotex.jpg" alt="">
+            <img src="../../img/kotexfooter.png" alt="">
             <div class="iconos">
                 <font-awesome-icon class="iconFooter" :icon="['fab', 'facebook-f']" />
                 <font-awesome-icon class="iconFooter" :icon="['fab', 'instagram']" />
@@ -18,10 +18,10 @@
             <p>Catalogo</p>
         </div>
         <div class="textoEmpresa2">
-            <p>Nosotros</p>
-            <p>Productos de linea</p>
-            <p>Productos Especiales</p>
-            <p>Catalogo</p>
+            <p>Aplicaciones</p>
+            <p>Servicios</p>
+            <p>Presupuesto</p>
+            <p>Contacto</p>
         </div>
         <div class="textoEmpresa3">
             <p>Suscribite al Newsletter</p>
@@ -29,7 +29,8 @@
         </div>
         <div class="textoEmpresa4">
             <p class="title4">Contacto</p>
-            <div class="iconInfo"><font-awesome-icon class="iconEnd" :icon="['fas', 'location-dot']" /><p>Florencio Varela</p></div>
+            <div class="iconInfo"><font-awesome-icon class="iconEnd" :icon="['fas', 'location-dot']" /><p>República de Israel (calle 24) N. 3259, San Martín, <br>
+                 Prov. de Buenos Aires, Argentina</p></div>
             <div class="iconInfo"><font-awesome-icon class="iconEnd" :icon="['fas', 'phone']" /><p>(011) 4754-6393</p></div>
             <div class="iconInfo"><font-awesome-icon class="iconEnd" :icon="['fab', 'whatsapp']" /><p>+54 9 11 4446-6664</p></div>
             <div class="iconInfo"><font-awesome-icon class="iconEnd" :icon="['far', 'envelope']" /><p>kotexsrl@hotmail.com</p></div>
@@ -41,7 +42,7 @@
     
     <div class="textoEmpresa5">
     <p>Copyright 2024 kotex S.R.L. Todos los derechos reservados</p>
-    <p>By osole</p>
+    <p class="osole">By osole</p>
     </div>
     </footer>
    
@@ -54,6 +55,9 @@ export default {
 </script>
 
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+
 .iconoR{
     margin-top: 10px;
 }
@@ -61,12 +65,14 @@ export default {
     padding-top: 10px;
     padding-right: 50px;
     padding-left: 50px;
-
     width: 100%;
     display: flex;
     justify-content: space-between;
     background-color: #2F3F78;
-    color: #D5D9E4;
+    color: rgba(255, 255, 255, 0.8);
+    font-family: "Montserrat", sans-serif;
+    font-size: 14px;
+
 }
 .iconEnd{
     margin-right: 20px;
@@ -81,7 +87,11 @@ export default {
 .textoEmpresa4{
     margin-top: 50px;
     margin-left: 100px;
-    color:white;
+    color: white;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 400px;
+    font-size: 15px;
+
 }
 .iconRow{
     background-color: white;
@@ -93,21 +103,26 @@ input{
     height: 50px;
 }
 .textoEmpresa3 p{
-    font-size: 30px;
+    font-size: 25px;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 500px;
 }
 .textoEmpresa3{
     margin-top: 50px;
     margin-left: 50px;
-    color:white;
+    color: rgba(255, 255, 255, 0.8);
+
 }
 .textoEmpresa2{
-    margin-top: 86px;
+    margin-top: 98px;
     margin-left: 100px;
-    color: white;
+    color: rgba(255, 255, 255, 0.8);
+    font-family: "Montserrat", sans-serif;
+    font-size: 15px;
 }
 
 #tituloSecciones{
-    margin-bottom: 10px;
+    margin-bottom: 20px;
     font-size: 20px;
     color: white;
 }
@@ -115,9 +130,12 @@ input{
     margin-top: 50px;
     margin-left: 270px;
     padding-left: 25px;
-    color:white;
-    border-left: 2px solid #526092;
+    color: rgba(255, 255, 255, 0.8); 
+    border-left: 1px solid rgba(255, 255, 255, 0.8);
     height: 250px;
+    font-family: "Montserrat", sans-serif;
+    font-size: 15px;
+
 
 }
 .iconos{

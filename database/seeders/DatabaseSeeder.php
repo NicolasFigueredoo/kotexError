@@ -37,14 +37,14 @@ class ProductoSeeder extends Seeder
     {
         // Ejemplo de creación de productos ficticios
         $productos = [
-            ['nombre' => 'Producto 1', 'categoria' => 'Productos de linea', 'imagen' => '1.jpg'],
-            ['nombre' => 'Producto 2', 'categoria' => 'Productos de linea', 'imagen' => '2.jpg'],
-            ['nombre' => 'Producto 3', 'categoria' => 'Productos de linea', 'imagen' => '3.jpg'],
-            ['nombre' => 'Producto 4', 'categoria' => 'Productos de linea', 'imagen' => '4.jpg'],
-            ['nombre' => 'Producto 5', 'categoria' => 'Productos de linea', 'imagen' => '5.jpg'],
-            ['nombre' => 'Producto 6', 'categoria' => 'Productos de linea', 'imagen' => '6.jpg'],
-            ['nombre' => 'Producto 7', 'categoria' => 'Productos de linea', 'imagen' => '7.jpg'],
-            ['nombre' => 'Producto 8', 'categoria' => 'Productos de linea', 'imagen' => '8.jpg'],
+            ['nombre' => 'Elásticos de embutir', 'categoria' => 'PRODUCTOS DE LINEA', 'imagen' => '1.jpg'],
+            ['nombre' => 'Cordones elásticos', 'categoria' => 'PRODUCTOS DE LINEA', 'imagen' => '2.jpg'],
+            ['nombre' => 'Cinta rígida con reflectivo', 'categoria' => 'PRODUCTOS DE LINEA', 'imagen' => '3.jpg'],
+            ['nombre' => 'Elásticos lurex', 'categoria' => 'PRODUCTOS DE LINEA', 'imagen' => '4.jpg'],
+            ['nombre' => 'Elásticos negros', 'categoria' => 'PRODUCTOS DE LINEA', 'imagen' => '5.jpg'],
+            ['nombre' => 'Elásticos con cordon', 'categoria' => 'PRODUCTOS DE LINEA', 'imagen' => '6.jpg'],
+            ['nombre' => 'Elásticos con ojal', 'categoria' => 'PRODUCTOS DE LINEA', 'imagen' => '7.jpg'],
+            ['nombre' => 'Elásticos partidos', 'categoria' => 'PRODUCTOS DE LINEA', 'imagen' => '8.jpg'],
         ];
 
         foreach ($productos as $producto) {

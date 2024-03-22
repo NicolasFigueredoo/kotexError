@@ -1,10 +1,6 @@
 <template>
   <div>
-    <div class="indicador">
-      <p>Inicio > Nosotros</p>
-    </div>
-
-   
+    <div class="indicador"><p>Inicio > Productos de linea</p></div>
     <div class="productoslinea">
       <div class="productos" >
         <div  v-for="producto in productos" :key="producto.id">
@@ -44,6 +40,7 @@ export default {
 </script>
 
 <style scoped>
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
 
 .productoslinea{
@@ -51,48 +48,55 @@ export default {
   justify-content: center;
 }
 .nombre{
-  font-size: 20px;
+  font-size: 22px;
   color: black;
-  text-align: start;
-
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+  line-height: 26px;
+  margin-left: 10px;
 }
 .categoria{
-  font-size: 25px;
-  font-weight: bold;
+  font-size: 14px;
+  font-weight: 700;
+  font-family: "Montserrat", sans-serif;
   color: #33447F;
-  text-align: start;
+  line-height: 17px;
+  margin-top: 20px;
+  margin-left: 10px;
+
 }
 
 
 .productos{
-  height: 900px;
+  height: 1200px;
   display: grid;
   grid-template-rows: repeat(2, 1fr 1fr);
   grid-template-columns: repeat(4, 400px);
 }
 
 .producto img{
-  width: 100%;
-  height: 250px;
+  width: 350px;
+  height: 300px;
 }
 .producto{
   margin-top: 50px;
-  height: 350px;
-  padding: 10px;
+  width: 350px;
+  height: 450px;
   background-color: white;
-  width: 280px;
-  text-align: start;
   color: #33447F;
+  border-bottom: 1px solid rgba(147, 147, 147, 0.3);
 
 }
 
 .indicador{
     color: black;
     margin-top: 10px;
+    margin-left: 150px;
+    font-size: 15px;
+    font-weight: 500;
+    font-family: "Montserrat", sans-serif;
+    line-height: 60px;
 }
-.indicador p{
-    margin-bottom: 100px;
-    margin-left: 100px;
-}
+
 
 </style>
