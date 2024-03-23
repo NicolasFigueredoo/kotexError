@@ -25,7 +25,9 @@
         <div class="opcion1">
         <font-awesome-icon class="iconNavbar" :icon="['fas', 'magnifying-glass']" />
         </div>
+        <div class="palito">
         <p>|</p>
+        </div>
         <div class="opcion1">
         <font-awesome-icon class="iconNavbar" :icon="['fab', 'facebook-f']" />
         </div>
@@ -90,7 +92,9 @@ export default {
 <style scoped>
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
-
+.palito{
+    margin-left: 10px;
+}
 .navbar{
     height: 180px;
 }

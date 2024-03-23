@@ -53,8 +53,7 @@
             <div class="tarjeta">
                 <font-awesome-icon class="iconNosotros" :icon="['fas', 'bullseye']" />
                 <p class="textoIcon">Misíon</p>
-                <p class="infoIcon">Profesionalismo y experiencia de nuestros empleados a disposición del cliente.
-Aprendizaje y adaptabilidad continúa.</p>
+                <p class="infoIcon">Profesionalismo y experiencia de nuestros empleados a disposición del cliente.Aprendizaje y adaptabilidad continúa.</p>
 
             </div>
 
