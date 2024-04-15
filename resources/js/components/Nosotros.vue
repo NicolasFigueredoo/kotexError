@@ -94,22 +94,22 @@ export default {
 }
 .carousel-indicators .active {
     opacity: 1;
-    height: 10px;
-    width: 27px;
+    height: 7px;
+    width: 35px;
     background-color: #939393;
 
 }
 
 .carousel-indicators button {
     opacity: 1;
-    height: 10px;
-    width: 27px;
+    height: 7px;
+    width: 35px;
     background-color: #939393;
     opacity: 50%;
 
 }
 .carousel-indicators {
- right: 1300px;
+ right: 44.5%;
  margin-left: 0px;
  bottom: 100px;
  height: 10px;
@@ -119,7 +119,7 @@ export default {
   display: none; 
 }
 .infoIcon{
-    margin: 50px;
+    padding: 10px;
     font-family: "Montserrat", sans-serif;
     font-size: 16px;
     font-weight: 400;
@@ -141,21 +141,22 @@ export default {
 
 }
 .tarjeta{
-    width: 500px;
-    height: 450px;
+    width: 392px;
+    height: 362px;
     background-color: white;
-    margin-right: 20px;
+    margin-right: 45px;
     text-align: center;
 }
 .tarjetas{
     display: flex;
-    justify-content: center;
+    justify-content: left;
+    margin-left: 17%;
 }
 .titulo2{
     font-size: 35px;
     font-family: "Montserrat", sans-serif;
     font-weight: 600;
-    margin-left: 120px;
+    margin-left: 17%;
     padding-top: 40px;
     padding-bottom: 20px;
 
@@ -168,15 +169,16 @@ export default {
 .titulo{
     font-size: 35px;
     font-family: "Montserrat", sans-serif;
-    font-weight: 600
+    font-weight: 600;
+    margin-left: 30%;
 }
 .imgInfo img{
-    width: 600px;
+    width: 585px;
     height: 550px;
     filter: grayscale(100%); 
 }
 .imgInfo{
-    margin-left: 200px;
+    margin-left: 250px;
 
 }
 .informacionNosotros{
@@ -192,6 +194,7 @@ export default {
 }
 .infotext{
     margin-top: 90px;
+    margin-left: 30%;
     width: 600px;
 }
 .text{
@@ -202,7 +205,7 @@ export default {
 
 .textoImg{
     margin-top: 200px;
-    margin-left: 90px;
+    margin-left: 17%;
     height: 50px;
     position: absolute;
     z-index: 1; 
@@ -221,11 +224,12 @@ export default {
     position: absolute;
     z-index: 1; 
     color: black;
+    margin-left: 0%;
+    margin-top: 0%;
 }
 .indicador p{
-    margin-left: 150px;
+    margin-left: 17.3%;
     margin-top: 10px;
-
     color: white;
     font-size: 15px;
     font-weight: 400;

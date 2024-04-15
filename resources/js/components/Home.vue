@@ -1,8 +1,8 @@
 <template>
   <div>
-    <div class="textoImg">
+    <div class="textoImg" data-aos="fade-right" data-aos-duration="2000">>
       <p>Fabricamos cintas elásticas para la industria en general</p>
-      <button type="button" id="masInformacion" class="btn" style="width: 250px; height: 50px;">MÁS INFORMACIÓN</button>
+      <button type="button"  class="btn masInformacion" >MÁS INFORMACIÓN</button>
 
     </div>
 
@@ -36,7 +36,7 @@
 
 
     <div class="secciones">
-      <div class="seccion">
+      <!-- <div class="seccion">
         <p class="titleSeccion">Novedades</p>
         <div class="novedades">
         <div class="card" style="width: 18rem;">
@@ -75,70 +75,75 @@ Los elásticos negros continúan siendo una elección popular debido a su versat
           </div>
         </div>
         </div>
-      </div>
+      </div> -->
       
-      <div class="seccion2">
+    </div>
+    <div class="seccion2">
+      <div class="contenido">
         <p class="titleSeccion">Productos</p>
         <div class="imagenes">
-          <div>
+          <div style="margin-right: 2.5%;" data-aos="fade-up" data-aos-anchor-placement="center-bottom" data-aos-duration="2000">
             <p class="tituloImg">PRODUCTOS DE LINEA</p>
-            <img class="imgS" src="../../img/productos.png" alt="">
+            <div class="imagen-contenedor" >
+              <img class="imgS zoomable" src="../../img/productos.png" alt="">
           </div>
-          <div>
+          </div>
+          <div  data-aos="fade-up" data-aos-anchor-placement="center-bottom" data-aos-duration="2000">
             <p class="tituloImg">PRODUCTOS ESPECIALES</p>
-            <img class="imgS" src="../../img/productos2.png" alt="">
-          </div>
-        </div>
-  
+            <div class="imagen-contenedor">
+            <img class="imgS zoomable" src="../../img/productos2.png" alt="">
+        </div>          
       </div>
+        </div>
+      </div>
+
     </div>
 
     <div class="empresa">
-      <div class="imgEmpresa">
+      <div class="imgEmpresa" data-aos="fade-right" data-aos-duration="2000"  >
         <img src="../../img/imgNosotros2.png" alt="">
       </div>
-          <div class="infoEmpresa">
-          <p class="titulo">Empresa</p>
-          <div class="infotext">
-            <p class="text"><b class="kotex">Kotex SRL</b>, fábrica de cintas elásticas y rígidas de crochet, es una empresa familiar con casi 30 años en el rubro textil.</p>
-            <p class="text">Por la calidad de nuestros productos y especial enfoque en la “atención personalizada” ocupamos un lugar de preferencia entre las empresas confeccionistas de reconocidas marcas.</p>
-            <p class="text">Es nuestro deseo es seguir creciendo día a día junto con nuestros clientes brindándoles soluciones eficientes y procurando mantener balanceados los parámetros de: Precio, Calidad y Servicio.</p>
+          <div class="infoEmpresa" >
+          <p class="titulo" data-aos="fade-left" data-aos-duration="2000">Empresa</p>
+          <div class="infotext" data-aos="fade-left" data-aos-duration="2000">
+            <p class="text" ><b class="kotex">Kotex SRL</b>, fábrica de cintas elásticas y rígidas de crochet, es una empresa familiar con casi 30 años en el rubro textil.</p>
+            <p class="text" style="margin-top: 50px;">Por la calidad de nuestros productos y especial enfoque en la “atención personalizada” ocupamos un lugar de preferencia entre las empresas confeccionistas de reconocidas marcas.</p>
           </div>
-          <button type="button" id="masInformacion" class="btn" style="width: 250px; height: 50px; background-color: white; color: #2F3F78;">MÁS INFORMACIÓN</button>
+          <button type="button" class="btn masInformacion2" data-aos="fade-left" data-aos-duration="2000">MÁS INFORMACIÓN</button>
 
       </div>
     </div>
 
-    <div class="nuestrosServicios">
+    <div class="nuestrosServicios" data-aos="fade-up" data-aos-duration="2500">
       <div>
         <p class="titleServicio">Nuestros servicios</p>
       </div>
       <div class="servicios">
-        <div class="tarjeta">
+        <div class="tarjeta" data-aos="flip-left" data-aos-duration="3000">
           <font-awesome-icon class="iconServicio" :icon="['fas', 'cubes']" />
           <p class="textTarjeta">Stock permanente en productos de linea</p>
         </div>
-        <div class="tarjeta">
+        <div class="tarjeta" data-aos="flip-left" data-aos-duration="3000">
           <font-awesome-icon class="iconServicio" :icon="['fas', 'gem']" />
           <p class="textTarjeta">Desarrollos de productos especiales</p>
         </div>
-        <div class="tarjeta">
+        <div class="tarjeta" data-aos="flip-left" data-aos-duration="3000">
           <font-awesome-icon class="iconServicio" :icon="['fas', 'truck']" />
           <p class="textTarjeta">Envíos al interior a través del transporte de su confianza</p>
         </div>
-        <div class="tarjeta">
+        <div class="tarjeta" data-aos="flip-left" data-aos-duration="3000">
           <font-awesome-icon class="iconServicio" :icon="['fas', 'headset']" />
           <p class="textTarjeta">Atendemos su consulta telefonicamente o por email</p>
         </div>
       </div>
     </div>
 
-    <div class="productosDestacados">
+    <div class="productosDestacados" data-aos="fade-up" data-aos-duration="2500">
       <p class="productosD">Productos destacados</p>
       <div>
         <Carousel class="carouselP" :items-to-show="4" :wrap-around="true">
           <Slide v-for="producto in productos" :key="producto.id">
-            <div class="carousel__item">
+            <div class="carousel__item" data-aos="fade-up" data-aos-duration="2000">
               <div class="producto"> 
             <img :src="'../../img/' + producto.imagen"  alt="imagen">
             <p class="categoria">{{ producto.categoria }}</p>
@@ -168,6 +173,8 @@ Los elásticos negros continúan siendo una elección popular debido a su versat
 </template>
 
 <script>
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 import { defineComponent } from 'vue';
 import { Carousel, Navigation, Slide, Pagination  } from 'vue3-carousel';
 import 'vue3-carousel/dist/carousel.css';
@@ -201,6 +208,9 @@ export default defineComponent({
     };
   },
   mounted() {
+
+    AOS.init();
+
     axios.get('/api/productosdelinea')
       .then(response => {
         this.productos = response.data;
@@ -218,12 +228,12 @@ export default defineComponent({
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
 
-
 .productosDestacados{
-  height: 700px;
+  height: 800px;
 }
 .carouselP{
-  padding-left: 120px;
+  padding-left: 17.5%;
+  width: 90%;
 }
 
 .nombre{
@@ -256,16 +266,21 @@ export default defineComponent({
 }
 
 .producto img{
-  width: 350px;
+  width: 288px;
   height: 300px;
 }
 .producto{
+  padding: 20px;
   margin-top: 50px;
-  width: 350px;
-  height: 450px;
+  width: 320px;
+  height: 500px;
   background-color: white;
   color: #33447F;
   border-bottom: 1px solid rgba(147, 147, 147, 0.3);
+}
+
+.producto:hover{
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
 
 }
 
@@ -275,16 +290,16 @@ export default defineComponent({
   font-weight: 600;
   text-align: left;
   font-family: "Montserrat", sans-serif;
-  margin-left: 120px;
-  padding-top: 30px;
+  margin-left: 17%;
+  padding-top: 70px;
 }
 .titleServicio{
   font-size: 35px;
   font-weight: 600;
   text-align: left;
   font-family: "Montserrat", sans-serif;
-  margin-left: 120px;
-  padding-top: 30px;
+  margin-left: 17%;
+  padding-top: 50px;
 
 }
 .iconServicio{
@@ -293,53 +308,58 @@ export default defineComponent({
 }
 .textTarjeta{
   font-family: "Montserrat", sans-serif;
-  font-size: 20px;
+  font-size: 16px;
   font-weight: 500;
   color: #2F3F78;
   margin-top: 50px;
 }
 .tarjeta{
-  width: 400px;
-  height: 400px;
+  width: 288px;
+  height: 266px;
   background-color: white;
   margin-left: 30px;
   text-align: center;
-  padding-top: 120px;
-  padding-right: 80px;
-  padding-left: 80px;
+  border-radius: 5px;
+  padding-top: 70px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
 
 }
 .servicios{
   display: flex;
-  justify-content: center;
+  justify-content: left;
+  margin-left: 15.5%;
 }
 .nuestrosServicios{
   background-color: #F5F5F5;
-  height: 600px;
+  height: 500px;
   width: 100%;
+}
 
+.kotex{
+  font-weight: 600;
 }
 .text{
-  font-size: 27px;
+  font-size: 25px;
   font-family: "Montserrat", sans-serif;
-  font-weight: 400
+  font-weight: 300;
+
 }
 
 .infotext{
-  margin-top: 90px;
+  margin-top: 50px;
   width: 700px;
 }
 
 .titulo{
-  margin-top: 30px;
-  font-size: 35px;
+  margin-top: 80px;
+  font-size: 45px;
   font-family: "Montserrat", sans-serif;
-  font-weight: 600
+  font-weight: 500
 }
 
 .infoEmpresa{
   width: 50%;
-  padding-left: 50px;
+  padding-left: 100px;
   background-color: #2F3F78;
   color: white;
 }
@@ -355,18 +375,18 @@ export default defineComponent({
 }
 .empresa{
   display: flex;
-  height: 850px;
+  height: 750px;
 }
 
 .tituloImg{
   color: white;
   position: absolute;
   z-index: 1; 
-  margin-top: 240px;
-  margin-left: 50px;
+  margin-top: 250px;
+  margin-left: 100px;
   font-family: "Montserrat", sans-serif;
-  font-size: 24px;
-  font-weight: 600;
+  font-size: 30px;
+  font-weight: 500;
   line-height: 29.26px;
   text-align: center;
 
@@ -375,29 +395,52 @@ export default defineComponent({
   display: flex;
   justify-content: center;
 }
+.seccion2{
+   margin-left: 17%;
+   margin-top: 80px;
+}
+.contenido{
+  display: flex;
+  flex-direction: column;
+  
+}
 .imagenes div{
-  width: 400px;
+  width: 600px;
   height: 288px;
-  margin-left: 20px;
-
+  margin-bottom: 100px;
+  margin-top: 20px;
 }
 .imagenes{
   display: flex;
-  justify-content: center;
-  padding-top: 50px;
+  justify-content: left;
 
 }
-.imgS{
-  width: 400px;
-  height: 288px;
 
+
+
+
+.imagen-contenedor {
+  overflow: hidden; 
+  width: 200px; 
+  height: 200px; 
+  filter: brightness(0.8); 
 }
+
+.imgS {
+  width: 100%; 
+  transition: transform 0.3s ease; 
+}
+
+.imgS:hover {
+  transform: scale(1.1); 
+}
+
 .titleSeccion{
   font-family: "Montserrat", sans-serif;
   font-size: 35px;
   font-weight: 600;
   line-height: 42.67px;
-  text-align: center;
+  text-align: left;
   margin-top: 20px;
 
 
@@ -439,31 +482,31 @@ export default defineComponent({
 }
 .novedades{
   padding-top: 50px;
-  justify-content: center;
+  justify-content: left;
   display: flex;
   height: 700px;
   width: 100%;
 }
 .carousel-indicators .active {
     opacity: 1;
-    height: 10px;
-    width: 27px;
+    height: 7px;
+    width: 35px;
     background-color: #939393;
 
 }
 
 .carousel-indicators button {
     opacity: 1;
-    height: 10px;
-    width: 27px;
+    height: 7px;
+    width: 35px;
     background-color: #939393;
     opacity: 50%;
 
 }
 .carousel-indicators {
- right: 1300px;
+ right: 44.5%;
  margin-left: 0px;
- bottom: 100px;
+ bottom: 65px;
  height: 10px;
 }
 .carousel-control-prev,
@@ -479,15 +522,15 @@ export default defineComponent({
 
 
 .carousel-item img {
-    object-fit: cover;
+    background-size: cover;
     width: 100%;
     height: 100%;
 }
 
 .textoImg{
-    margin-top: 200px;
-    margin-left: 90px;
-    width: 650px;
+    margin-top: 150px;
+    margin-left: 17%;
+    width: 530px;
     height: 50px;
     position: absolute;
     z-index: 1; 
@@ -497,13 +540,34 @@ export default defineComponent({
     color: white;
     font-weight: 400;
     font-family: "Montserrat", sans-serif;
-    font-size: 50px;
+    font-size: 40px;
 }
 
-#masInformacion{
+.masInformacion{
+  margin-left: 1%;
   margin-top: 50px;
-  background-color: #2F3F78;
-  color: white;
   border-radius: 0%;
+  width: 300px;
+  height: 60px; 
+  background-color: #2F3F78; 
+  color: white;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 300;
+  font-size: 20px;
 }
+
+.masInformacion2{
+  margin-left: 4px;
+  margin-top: 50px;
+  border-radius: 0%;
+  width: 300px;
+  height: 60px; 
+  background-color: white; 
+  color: #2F3F78;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 300;
+  font-size: 20px;
+}
+
+
 </style>

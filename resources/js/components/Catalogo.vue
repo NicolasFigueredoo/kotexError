@@ -91,6 +91,7 @@ export default {
   align-items: center;
   margin: 100px;
   margin-left: 600px;
+  margin-bottom: 400px;
 
 }
 .informacionCatalogo{
