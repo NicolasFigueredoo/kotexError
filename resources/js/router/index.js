@@ -1,11 +1,13 @@
 import { createRouter, createWebHistory } from 'vue-router';
-import Nosotros from '../components/Nosotros.vue';
-import Catalogo from '../components/Catalogo.vue';
-import ProductosLinea from '../components/ProductosLinea.vue';
-import Aplicaciones from '../components/Aplicaciones.vue';
-import Presupuesto from '../components/Presupuesto.vue';
+import Nosotros from '../views/nosotros/NosotrosView.vue';
+import Catalogo from '../views/catalogo/CatalogoView.vue';
+import ProductosLinea from '../views/productosDeLinea/ProductosLineaView.vue';
+import Presupuesto from '../views/presupuesto/PresupuestoView.vue';
+import Contacto from '../views/contacto/ContactoView.vue';
 
-import Home from '../components/Home.vue';
+import Aplicaciones from '../components/Aplicaciones.vue';
+
+import Home from '../views/home/HomeView.vue';
 
 
 const routes = [
@@ -36,6 +38,11 @@ const routes = [
     {
         path: '/presupuesto',
         component: Presupuesto
+    }
+    ,
+    {
+        path: '/contacto',
+        component: Contacto
     }
 ];
 

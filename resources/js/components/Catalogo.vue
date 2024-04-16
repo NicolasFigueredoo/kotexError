@@ -77,7 +77,7 @@ export default {
 .indicador{
     color: black;
     margin-top: 10px;
-    margin-left: 150px;
+    margin-left: 17%;
     font-size: 15px;
     font-weight: 500;
     font-family: "Montserrat", sans-serif;

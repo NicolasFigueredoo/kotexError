@@ -22,6 +22,7 @@
         "vue": "^3.4.21",
         "vue-axios": "^2.1.5",
         "vue-router": "^4.0.13",
+        "vue2-google-maps": "^0.10.7",
         "vue3-carousel": "^0.3.1"
     }
 }

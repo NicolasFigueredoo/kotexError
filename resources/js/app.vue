@@ -8,8 +8,8 @@
 <script>
 
 
-import Navbar_boot from './Navbar.vue';
-import Footer_boot from './Footer.vue';
+import Navbar_boot from './components/Navbar.vue';
+import Footer_boot from './components/Footer.vue';
 
 export default {
   name: 'App',

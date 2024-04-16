@@ -32,7 +32,6 @@ export default {
     axios.get('/api/productosdelinea')
       .then(response => {
         this.productos = response.data;
-        console.log(response.data)
       })
       .catch(error => {
         console.error('Error al traer los productos:', error);
@@ -48,6 +47,9 @@ export default {
 .productoslinea{
   display: flex;
   justify-content: center;
+  width: 800px;
+  margin-left: 26%;
+
 }
 .nombre{
   font-size: 22px;
@@ -72,18 +74,18 @@ export default {
 .productos{
   height: 1200px;
   display: grid;
-  grid-template-rows: repeat(2, 1fr 1fr);
-  grid-template-columns: repeat(4, 400px);
+  grid-template-rows: repeat(2, 40%);
+  grid-template-columns: repeat(4, 27%);
 }
 
 .producto img{
-  width: 350px;
-  height: 300px;
+  width: 285px;
+  height: 273px;
 }
 .producto{
   margin-top: 50px;
-  width: 350px;
-  height: 450px;
+  width: 288px;
+  height: 410px;
   background-color: white;
   color: #33447F;
   border-bottom: 1px solid rgba(147, 147, 147, 0.3);
@@ -93,7 +95,7 @@ export default {
 .indicador{
     color: black;
     margin-top: 10px;
-    margin-left: 150px;
+    margin-left: 17%;
     font-size: 15px;
     font-weight: 500;
     font-family: "Montserrat", sans-serif;

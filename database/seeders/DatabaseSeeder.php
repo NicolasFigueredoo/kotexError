@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Aplicacion;
 use App\Models\Producto;
 use App\Models\User;
 use Illuminate\Database\Seeder;
@@ -12,6 +13,7 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         $this->call(ProductoSeeder::class);
+        $this->call(AplicacionSeeder::class);
 
         User::factory()->create([
             'name' => 'Test User',
@@ -52,6 +54,38 @@ class ProductoSeeder extends Seeder
                 'nombre' => $producto['nombre'],
                 'categoria' => $producto['categoria'],
                 'imagen' => $producto['imagen'],
+            ]);
+        }
+
+      
+    }
+}
+
+class AplicacionSeeder extends Seeder
+{
+    /**
+     * Seed the products table with dummy data.
+     *
+     * @return void
+     */
+    public function run()
+    {
+        // Ejemplo de creación de productos ficticios
+        $aplicaciones = [
+            ['nombre' => 'trajes de baño', 'imagen' => 'trajesbaño.png'],
+            ['nombre' => 'indumentaria deportiva', 'imagen' => 'indumentariadeportiva.png'],
+            ['nombre' => 'uniformes', 'imagen' => 'uniformes.png'],
+            ['nombre' => 'ciclismo', 'imagen' => 'ciclismo.png'],
+            ['nombre' => 'ropa interior', 'imagen' => 'ropaInterior.png'],
+            ['nombre' => 'ropa para ñiños', 'imagen' => 'ropaÑiños.png'],
+            ['nombre' => 'sábanas ajustables', 'imagen' => 'sabanas.png'],
+            ['nombre' => 'barbijo', 'imagen' => 'barbijo.png'],
+        ];
+
+        foreach ($aplicaciones as $aplicacion) {
+            Aplicacion::create([
+                'nombre' => $aplicacion['nombre'],
+                'imagen' => $aplicacion['imagen'],
             ]);
         }
 

@@ -68,7 +68,7 @@
         </div>
               
         <div class="opcion2">
-        <router-link class="route" to="/">Contacto</router-link>
+        <router-link class="route" to="/contacto" :style="{ fontWeight: isRouteActive('/contacto') ? 'bold' : '500' }">Contacto</router-link>
         </div>
 
         
@@ -132,13 +132,13 @@ export default {
 .contenidoNav{
     display: flex;
     margin-top: 50px;
-    margin-left: 320px;
+    margin-left: 24%;
 
 }
 .contenidoNav2{
     display: flex;
     margin-top: 20px;
-    margin-left: 238px;
+    margin-left: 17.3%;
 
 }
 
