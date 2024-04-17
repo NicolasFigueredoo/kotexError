@@ -5,7 +5,7 @@
         <div class="aplicaciones" >
           <div  v-for="aplicacion in aplicaciones" :key="aplicacion.id">
             <div class="aplicacion"> 
-              <img :src="'../../img/' + aplicacion.imagen"  alt="imagen">
+              <img :src="'../../img/' + aplicacion.imagen"  alt="imagen" class="imgAplicacion">
               <p class="nombre">{{ (aplicacion.nombre).toUpperCase() }}</p>
   
             </div>
@@ -30,7 +30,6 @@
     mounted() {
       axios.get('/api/aplicaciones')
         .then(response => {
-          console.log(response)
           this.aplicaciones = response.data;
         })
         .catch(error => {
@@ -70,6 +69,11 @@
 .aplicacion img{
   width: 285px;
   height: 273px;
+  cursor: pointer;
+}
+.aplicacion img:hover{
+  width: 300px;
+  height: 298px;
 }
 .aplicacion{
   margin-top: 50px;

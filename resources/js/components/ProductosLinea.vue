@@ -1,11 +1,10 @@
 <template>
   <div>
-    <div class="indicador"><p>Inicio > Productos de linea</p></div>
     <div class="productoslinea">
       <div class="productos" >
         <div  v-for="producto in productos" :key="producto.id">
           <div class="producto"> 
-            <img :src="'../../img/' + producto.imagen"  alt="imagen">
+            <img :src="'../../img/' + producto.imagen"  alt="imagen" @click="verProducto(producto.id, producto.nombre)">
             <p class="categoria">{{ producto.categoria }}</p>
             <p class="nombre">{{ producto.nombre }}</p>
 
@@ -25,7 +24,8 @@ import axios from 'axios';
 export default {
   data() {
     return {
-      productos: []
+      productos: [],
+      mostrarProducto: 1
     };
   },
   mounted() {
@@ -36,6 +36,11 @@ export default {
       .catch(error => {
         console.error('Error al traer los productos:', error);
       });
+  },
+  methods: {
+    verProducto(id,nombre) {
+      this.$emit('ver-producto', [this.mostrarProducto,id,nombre]);
+    }
   }
 }
 </script>
@@ -44,12 +49,12 @@ export default {
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
 
-.productoslinea{
+.productoslinea {
   display: flex;
   justify-content: center;
   width: 800px;
   margin-left: 26%;
-
+  margin-right: auto;
 }
 .nombre{
   font-size: 22px;
@@ -71,16 +76,18 @@ export default {
 }
 
 
-.productos{
-  height: 1200px;
+.productos {
+  /* height: 1200px; Quitar la altura fija */
   display: grid;
-  grid-template-rows: repeat(2, 40%);
+  grid-template-rows: auto; /* Usar tamaño de fila automático */
   grid-template-columns: repeat(4, 27%);
 }
 
 .producto img{
   width: 285px;
   height: 273px;
+  cursor: pointer;
+
 }
 .producto{
   margin-top: 50px;
@@ -91,16 +98,5 @@ export default {
   border-bottom: 1px solid rgba(147, 147, 147, 0.3);
 
 }
-
-.indicador{
-    color: black;
-    margin-top: 10px;
-    margin-left: 17%;
-    font-size: 15px;
-    font-weight: 500;
-    font-family: "Montserrat", sans-serif;
-    line-height: 60px;
-}
-
 
 </style>

@@ -17,31 +17,44 @@ const routes = [
     },
     {
         path: '/home',
+        name: 'Home',
         component: Home
     },
     {
         path: '/nosotros',
+        name: 'Nosotros',
         component: Nosotros
-    },
+    },  
     {
-        path: '/productolinea',
+        path: '/productosdelinea/:id',
+        name: 'ProductosLineaId',
+        component: ProductosLinea
+    },
+   
+    {
+        path: '/productosdelinea',
+        name: 'ProductosLinea',
         component: ProductosLinea
     },
     {
         path: '/catalogo',
+        name: 'Catalogo',
         component: Catalogo
     },
     {
         path: '/aplicaciones',
+        name: 'Aplicaciones',
         component: Aplicaciones
     },
     {
         path: '/presupuesto',
+        name: 'Presupuesto',
         component: Presupuesto
     }
     ,
     {
         path: '/contacto',
+        name: 'Contacto',
         component: Contacto
     }
 ];

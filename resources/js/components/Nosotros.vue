@@ -163,7 +163,7 @@ export default {
 }
 .textoElegirnos{
     width: 100%;
-    height: 650px;
+    height: 580px;
     background-color: #f5f5f5;
 }
 .titulo{
@@ -171,6 +171,7 @@ export default {
     font-family: "Montserrat", sans-serif;
     font-weight: 600;
     margin-left: 30%;
+    margin-top: 20px;
 }
 .imgInfo img{
     width: 585px;
@@ -184,7 +185,7 @@ export default {
 .informacionNosotros{
     display: flex;
     justify-content: start;
-    margin-top: 100px;
+    margin-top: 45px;
     padding: 50px;
     margin-left: 100px;
 }

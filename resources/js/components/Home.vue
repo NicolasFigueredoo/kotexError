@@ -35,49 +35,7 @@
     </div>
 
 
-    <div class="secciones">
-      <!-- <div class="seccion">
-        <p class="titleSeccion">Novedades</p>
-        <div class="novedades">
-        <div class="card" style="width: 18rem;">
-          <img src="../../img/5.jpg" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h4 class="card-top">PRODUCTOS</h4>
-            <h5 class="card-title">Elásticos negros</h5>
-            <p class="card-text">
-Los elásticos negros continúan siendo una elección popular debido a su versatilidad y durabilidad, siendo ideales para una variedad de aplicaciones en la industria textil y más allá.</p>
-            <p class="card-bot">Leer más</p>
-          </div>
-        </div>
-        <div class="card" style="width: 18rem;">
-          <img src="../../img/2.jpg" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h4 class="card-top">PRODUCTOS</h4>
-            <h5 class="card-title">Cordones elásticos</h5>
-            <p class="card-text">Los cordones elásticos ofrecen flexibilidad y comodidad para una variedad de usos, desde calzado hasta aplicaciones industriales.</p>
-            <p class="card-bot">Leer más</p>
-          </div>
-        </div>
   
-        <div class="card" style="width: 18rem;">
-          <img src="../../img/8.jpg" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h4 class="card-top">PRODUCTOS</h4>
-            <h5 class="card-title">Elásticos partidos</h5>
-            <p class="card-text">Los elásticos partidos ofrecen flexibilidad y comodidad para una variedad de aplicaciones.
-
-
-
-
-</p>
-            <p class="card-bot">Leer más</p>
-  
-          </div>
-        </div>
-        </div>
-      </div> -->
-      
-    </div>
     <div class="seccion2">
       <div class="contenido">
         <p class="titleSeccion">Productos</p>
@@ -141,33 +99,24 @@ Los elásticos negros continúan siendo una elección popular debido a su versat
     <div class="productosDestacados" data-aos="fade-up" data-aos-duration="2500">
       <p class="productosD">Productos destacados</p>
       <div>
-        <Carousel class="carouselP" :items-to-show="4" :wrap-around="true">
+        <Carousel :items-to-show="4"  class="carouselP">
           <Slide v-for="producto in productos" :key="producto.id">
-            <div class="carousel__item" data-aos="fade-up" data-aos-duration="2000">
-              <div class="producto"> 
-            <img :src="'../../img/' + producto.imagen"  alt="imagen">
-            <p class="categoria">{{ producto.categoria }}</p>
-            <p class="nombre">{{ producto.nombre }}</p>
-          </div>
-      </div>
-    </Slide>
+            <div class="carousel__item" data-aos="fade-up" data-aos-duration="2000" @click="verProducto(producto.id)">
+              <div class="producto" > 
+                <img :src="'../../img/' + producto.imagen" alt="imagen">
+                <p class="categoria">{{ producto.categoria }}</p>
+                <p class="nombre">{{ producto.nombre }}</p>
+              </div>
+            </div>
+          </Slide>
 
-    <template #addons>
-      <Pagination />
-    </template>
-
-  </Carousel>
-
-  
-       
+          <template #addons>
+            <Pagination />
+          </template>
+        </Carousel>
       </div>
     </div>
 
-    
-  
-
-
-   
   </div>  
 
 </template>
@@ -180,7 +129,9 @@ import { Carousel, Navigation, Slide, Pagination  } from 'vue3-carousel';
 import 'vue3-carousel/dist/carousel.css';
 import axios from 'axios';
 
+
 export default defineComponent({
+
   name: 'Breakpoints',
   components: {
     Pagination,
@@ -206,20 +157,22 @@ export default defineComponent({
         },
       },
     };
+    
   },
+
+  
   mounted() {
-
     AOS.init();
-
     axios.get('/api/productosdelinea')
       .then(response => {
         this.productos = response.data;
-        console.log(response.data);
       })
       .catch(error => {
         console.error('Error al traer los productos:', error);
       });
   }
+
+  
 });
 
 </script>
@@ -271,7 +224,6 @@ export default defineComponent({
 }
 .producto{
   padding: 20px;
-  margin-top: 50px;
   width: 320px;
   height: 500px;
   background-color: white;
@@ -328,11 +280,13 @@ export default defineComponent({
   display: flex;
   justify-content: left;
   margin-left: 15.5%;
+  margin-top: 30px;
 }
 .nuestrosServicios{
   background-color: #F5F5F5;
   height: 500px;
   width: 100%;
+  padding-top: 20px
 }
 
 .kotex{
@@ -397,18 +351,16 @@ export default defineComponent({
 }
 .seccion2{
    margin-left: 17%;
-   margin-top: 80px;
+   margin-top: 60px;
 }
 .contenido{
   display: flex;
-  flex-direction: column;
-  
+  flex-direction: column;  
 }
 .imagenes div{
   width: 600px;
   height: 288px;
   margin-bottom: 100px;
-  margin-top: 20px;
 }
 .imagenes{
   display: flex;
@@ -555,8 +507,34 @@ export default defineComponent({
   font-weight: 300;
   font-size: 20px;
 }
+.masInformacion:hover{
+  margin-left: 1%;
+  margin-top: 50px;
+  border-radius: 0%;
+  width: 300px;
+  height: 60px; 
+  background-color: #2F3F78; 
+  color: white;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 300;
+  font-size: 20px;
+
+}
 
 .masInformacion2{
+  margin-left: 4px;
+  margin-top: 50px;
+  border-radius: 0%;
+  width: 300px;
+  height: 60px; 
+  background-color: white; 
+  color: #2F3F78;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 300;
+  font-size: 20px;
+}
+
+.masInformacion2:hover{
   margin-left: 4px;
   margin-top: 50px;
   border-radius: 0%;

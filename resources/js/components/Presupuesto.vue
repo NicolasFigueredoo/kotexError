@@ -49,52 +49,25 @@
           </thead>
         <tbody>
           <tr>
-              <th scope="row">123</th>
-            <td>
-              <select class="form-select selects" id="codigo">
-                <option selected>Productos de línea</option>
-                <option value="1">One</option>
-                <option value="2">Two</option>
-                <option value="3">Three</option>
-              </select>
+            <td class="rowT" scope="row">
+              <p>123</p>
             </td>
-            <td>
-              <select class="form-select selects" id="nombre">
-                <option selected>Elásticos de embutir</option>
-                <option value="1">One</option>
-                <option value="2">Two</option>
-                <option value="3">Three</option>
-              </select>
+            <td class="rowT">
+              <p>Productos de linea</p>
             </td>
-            <td>
-              <select  class="form-select selects" id="color">
-                <option selected>Blanco</option>
-                <option value="1">One</option>
-                <option value="2">Two</option>
-                <option value="3">Three</option>
-              </select>
+            <td class="rowT">
+              <p>Elásticos de embutir</p>
+            </td>
+            <td class="rowT">
+              <p>Blanco</p>
+            </td>
+            <td class="rowT">
+              <p>5mm</p>
+            </td>
+            <td class="rowT" >
+              <p>Rollo</p>
             </td>
 
-            <td>
-              <select  class="form-select selects" id="medida">
-                <option selected>5mm</option>
-                <option value="1">One</option>
-                <option value="2">Two</option>
-                <option value="3">Three</option>
-              </select>
-            </td>
-
-            
-            <td>
-              <select  class="form-select selects" id="unidadventa">
-                <option selected>Rollo</option>
-                <option value="1">One</option>
-                <option value="2">Two</option>
-                <option value="3">Three</option>
-              </select>
-            </td>
-
-            
             <td>
               <select  class="form-select selects" id="cantidad">
                 <option selected>1</option>
@@ -104,8 +77,13 @@
               </select>
             </td>
 
-            <td>
-              <button id="agregar" type="button" style="border-radius: 0%;" class="btn btn-primary">AGREGAR</button>
+            <td id="botonDelete" style="padding-right: 0px;">
+              <button id="delete" type="button" style="border-radius: 0%;" class="btn btn-primary">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+                  <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0z"/>
+                  <path d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4zM2.5 3h11V2h-11z"/>
+                </svg>
+              </button>
             </td>
 
 
@@ -113,7 +91,7 @@
         </tbody>
       </table>
       <div class="addProducto">
-        <p>+ AGREGAR MAS PRODUCTOS</p>
+        <button id="agregarProducto" type="button" style="border-radius: 0%;" class="btn btn-primary">+ AGREGAR MAS PRODUCTOS</button>
       </div>
       </div>
 
@@ -209,14 +187,20 @@
   font-weight: 500; 
   font-size: 15px;
 }
-#agregar{
+#delete{
   border: 1px solid rgba(51, 68, 127, 1);
   background-color: white;
   color: rgba(51, 68, 127, 1);
+  width: 61px;
+  height: 42px;
+}
+
+#botonDelete{
+text-align: right;
 }
 .addProducto{
   margin-top: 50px;
-  text-align: right;
+  text-align: left;
   color: rgba(51, 68, 127, 1);
 
 }
@@ -274,6 +258,22 @@
   font-weight: 300;
   width: 290px;
   height: 50px;
+}
+
+.rowT{
+  padding-top: 15px;
+}
+#agregarProducto{
+  border: 1px solid rgba(51, 68, 127, 1);
+  color: rgba(51, 68, 127, 1);
+  background-color: white;
+  width: 275px;
+  height: 49px;
+  font-family: "Montserrat";
+  font-size: 15px;
+  font-weight: 500;
+
+
 }
 
 </style>
