@@ -2,11 +2,11 @@
   <div>
     <div class="productosEspeciales">
       <div class="productos" >
-        <div  v-for="producto in productos" :key="producto.id">
+        <div  v-for="producto in productos" :key="producto.id_producto">
           <div class="producto"> 
-            <img src="../../img/kotexfooter.png"  alt="imagen" @click="verProducto(producto.producto_id, producto.nombre_producto)">
-            <p class="categoria">{{ producto.nombre_categoria }}</p>
-            <p class="nombre">{{ producto.nombre_producto }}</p>
+            <img src="../../img/kotexfooter.png"  alt="imagen" @click="verProducto(producto.id_producto, producto.nombre_producto)">
+            <p class="categoria">{{ producto.nombre_categoria.toUpperCase() }}</p>
+            <p class="nombre">{{ producto.nombre_producto.charAt(0).toUpperCase() + producto.nombre_producto.slice(1) }}</p>
 
           </div>
   
@@ -31,6 +31,7 @@ export default {
   mounted() {
     axios.get('/api/obtenerProductosEspeciales')
       .then(response => {
+        console.log(response.data)
         this.productos = response.data;
       })
       .catch(error => {
@@ -39,7 +40,7 @@ export default {
   },
   methods: {
     verProducto(id,nombre) {
-      this.$emit('ver-producto', [this.mostrarProducto,id,nombre]);
+      this.$emit('ver-producto', [id,nombre]);
     }
   }
 }

@@ -1,13 +1,13 @@
-import { createRouter, createWebHistory } from 'vue-router';
+import { createRouter, createWebHashHistory } from 'vue-router';
 import Nosotros from '../views/nosotros/NosotrosView.vue';
 import Catalogo from '../views/catalogo/CatalogoView.vue';
-import ProductosLinea from '../views/productosDeLinea/ProductosLineaView.vue';
 import Presupuesto from '../views/presupuesto/PresupuestoView.vue';
 import Contacto from '../views/contacto/ContactoView.vue';
+
+import ProductosLinea from '../views/productosDeLinea/ProductosLineaView.vue';
 import ProductosEspeciales from '../views/productosEspeciales/ProductosEspecialesView.vue';
 
 import Aplicaciones from '../components/Aplicaciones.vue';
-
 import Home from '../views/home/HomeView.vue';
 
 
@@ -23,7 +23,7 @@ const routes = [
     },
     {
         path: '/nosotros',
-        name: 'Nosotros',
+        name: 'nosotros',
         component: Nosotros
     },   
     {
@@ -61,7 +61,7 @@ const routes = [
 
 
 const router = createRouter({
-    history: createWebHistory(),
+    history: createWebHashHistory(),
     routes,
     scrollBehavior(to, from, savedPosition) {
         return { left: 0, top: 0 };

@@ -2,9 +2,22 @@ import { createStore } from 'vuex';
 
 export default createStore({
   state: {
-    selectedProductId: null
+    selectedProductId: null,
+    registros: JSON.parse(localStorage.getItem('registros')) || [],
+
   },
   mutations: {
+ 
+    agregarRegistro(state, nuevoRegistro ) {
+      state.registros.push(nuevoRegistro);
+      localStorage.setItem('registros', JSON.stringify(state.registros));
+    },
+
+    eliminarRegistro(state, idRegistro ) {
+      state.registros = state.registros.filter(registro => registro.idRegistro !== idRegistro);
+      localStorage.setItem('registros', JSON.stringify(state.registros));
+
+    },
     setSelectedProductId(state, productId) {
         state.selectedProductId = productId;
       }
@@ -15,7 +28,11 @@ export default createStore({
   getters: {
     getSelectedProductId(state) {
       return state.selectedProductId;
-      
-    }
+    },
+    
+    obtenerRegistros(state) {
+      return state.registros;
+    },
+  
   }
 });

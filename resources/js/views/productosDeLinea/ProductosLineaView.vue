@@ -1,66 +1,57 @@
 <template>
-    <div class="productosLinea-view">
-      <div class="indicador">
-        <p v-if="nombreProducto">{{`Inicio > Productos de línea > ${nombreProducto}`}}</p>
-        <p v-else>Inicio > Productos de línea</p>
-      </div>
-
-      <ProductosLinea v-if="mostrarComponente === 0" @ver-producto="mostrarProducto"/>
-      <InformacionProducto v-else :id-producto="idProducto" />
+  <div class="ProductosLinea-view">
+    <div class="indicador">
+      <p v-if="nombreProducto">{{`Inicio > Productos de línea > ${nombreProducto}`}}</p>
+      <p v-else>Inicio > Productos de línea</p>
     </div>
-  </template>
-  
-  <script>
-  import ProductosLinea from "@/components/ProductosLinea.vue";
-  import InformacionProducto from "@/components/InformacionProducto.vue";
-  import { computed } from 'vue';
-  import { useStore } from 'vuex';
-  
-  export default {
+
+    <ProductosLinea v-if="!idProducto" @ver-producto="mostrarProducto"/>
+    
+    <InformacionProducto v-else :id-producto="idProducto"  />
+  </div>
+</template>
+
+<script>
+import ProductosLinea from "@/components/ProductosLinea.vue";
+import InformacionProducto from "@/components/InformacionProducto.vue";
+
+export default {
   components: {
     ProductosLinea,
     InformacionProducto
   },
-
   data() {
     return {
-      mostrarComponente: 0,
       idProducto: null,
       nombreProducto: '',
     };
   },
-
   methods: {
     mostrarProducto(datosProducto) {
-      this.mostrarComponente = datosProducto[0];
-      this.idProducto = datosProducto[1];
-      this.nombreProducto = datosProducto[2];
+      this.idProducto = datosProducto[0];
+      this.nombreProducto = datosProducto[1].charAt(0).toUpperCase() + datosProducto[1].slice(1);
+      this.$store.commit('setSelectedProductId', datosProducto[0]);
     }
   },
-
   created() {
-    const store = useStore();
-    const selectedProductId = computed(() => store.getters['getSelectedProductId']);
-    
+    const selectedProductId = this.$store.getters['getSelectedProductId'];
 
-    if (selectedProductId.value !== null) {
-      this.mostrarComponente = 1;
-      this.idProducto = selectedProductId.value;
+    if (selectedProductId !== null) {
+      this.idProducto = selectedProductId;
     }
+    
   }
 };
 </script>
 
-  <style>
-  .indicador{
-    color: black;
-    margin-top: 10px;
-    margin-left: 17%;
-    font-size: 15px;
-    font-weight: 500;
-    font-family: "Montserrat", sans-serif;
-    line-height: 60px;
-    }
-    </style>
-  
-  
+<style>
+.indicador{
+  color: black;
+  margin-top: 10px;
+  margin-left: 17%;
+  font-size: 15px;
+  font-weight: 500;
+  font-family: "Montserrat", sans-serif;
+  line-height: 60px;
+}
+</style>

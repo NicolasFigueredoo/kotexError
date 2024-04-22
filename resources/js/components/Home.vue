@@ -50,10 +50,14 @@
         </router-link>
           </div>
           <div  data-aos="fade-up" data-aos-anchor-placement="center-bottom" data-aos-duration="2000">
+            <router-link class="route" to="/productosespeciales" :style="{ fontWeight: isRouteActive('/productosespeciales') ? 'bold' : '500' }">
+
             <p class="tituloImg">PRODUCTOS ESPECIALES</p>
             <div class="imagen-contenedor">
             <img class="imgS zoomable" src="../../img/productos2.png" alt="">
-        </div>          
+        </div>   
+      </router-link>
+       
       </div>
         </div>
       </div>
@@ -104,12 +108,12 @@
       <p class="productosD">Productos destacados</p>
       <div>
         <Carousel :items-to-show="4"  class="carouselP">
-          <Slide v-for="producto in productos.slice(0, 10)" :key="producto.id">
-            <div class="carousel__item" data-aos="fade-up" data-aos-duration="2000" @click="verProducto(producto.id)">
+          <Slide v-for="producto in productos.slice(0, 10)" :key="producto.id_variacion">
+            <div class="carousel__item" data-aos="fade-up" data-aos-duration="2000" @click="verProducto(producto.id_variacion)">
               <div class="producto"> 
                 <img src="../../img/kotexfooter.png" alt="imagen">
-                <p class="categoria">{{ producto.categorias[0].nombre }}</p>
-                <p class="nombre">{{ producto.producto.nombre }}</p>
+                <p class="categoria">{{ producto.nombre_categoria }}</p>
+                <p class="nombre">{{ producto.nombre_producto }}</p>
               </div>
             </div>
           </Slide>
@@ -181,9 +185,10 @@ export default defineComponent({
       return router.currentRoute.value.path === route;
     };
 
-    const obtenerProductosLinea = () => {
-      axios.get('/api/obtenerProductos')
+    const obtenerProductosDestacados = () => {
+      axios.get('/api/obtenerProductosRelacionados/3')
         .then(response => {
+          console.log(response.data)
           productos.value = response.data;
           
         })
@@ -195,7 +200,7 @@ export default defineComponent({
 
     onMounted(() => {
       AOS.init();
-      obtenerProductosLinea();
+      obtenerProductosDestacados();
     });
 
     return {

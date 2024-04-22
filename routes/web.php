@@ -22,7 +22,10 @@ Route::get('/api/obtenerNombresProducto/{categoriaId}', [VariacionesController::
 Route::get('/api/obtenerMedidasProducto', [VariacionesController::class, 'obtenerMedidasProducto']);
 Route::get('/api/obtenerColorProducto/{productoId}', [VariacionesController::class, 'obtenerColorProducto']);
 Route::get('/api/obtenerUnidadVenta', [VariacionesController::class, 'obtenerUnidadVenta']);
+Route::get('/api/obtenerProductosRelacionados/{categoriaId}', [VariacionesController::class, 'obtenerProductosRelacionados']);
 
 
 //categorias
 Route::get('/api/obtenerCategorias', [CategoriaController::class, 'index']);
+
+

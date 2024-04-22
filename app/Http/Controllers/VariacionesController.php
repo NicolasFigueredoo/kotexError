@@ -70,10 +70,15 @@ class VariacionesController extends Controller
 
         $nombres_aplicaciones = $aplicaciones->pluck('nombre');
 
+        $categorias = $variaciones->map(function ($variacion) {
+            return $variacion->categorias->pluck('id')->unique();
+        });
+
 
 
         return response()->json([
             'nombre_producto' => $nombre_producto,
+            'categorias' => $categorias->flatten()->values(),
             'medidas' => $medidas->flatten()->values(),
             'aplicaciones' => $nombres_aplicaciones,
 
@@ -167,5 +172,24 @@ class VariacionesController extends Controller
 
 
         return response()->json($unidadesVenta);
+    }
+
+    public function obtenerProductosRelacionados($categoriaId){
+
+        $productosRelacionados = Variacion::select(
+            'productos.id as id_producto',
+            'productos.nombre as nombre_producto',
+            'variaciones.imagen as imagen_variacion',
+            'categorias.nombre as nombre_categoria',
+            'variaciones.id as id_variacion'
+        )
+        ->join('variacion_categoria', 'variaciones.id', '=', 'variacion_categoria.variacion_id')
+        ->join('categorias', 'variacion_categoria.categoria_id', '=', 'categorias.id')
+        ->join('productos', 'variaciones.producto_id', '=', 'productos.id')
+        ->where('categorias.id', $categoriaId)
+        ->groupBy('productos.id', 'productos.nombre', 'variaciones.imagen', 'categorias.nombre', 'variaciones.id')
+        ->get();
+        return response()->json($productosRelacionados);
+
     }
 }

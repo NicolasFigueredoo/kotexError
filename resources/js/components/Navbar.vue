@@ -50,10 +50,10 @@
         </div>
 
         <div class="opcion2">
-        <router-link class="route" to="/productosdelinea" :style="{ fontWeight: isRouteActive('/productosdelinea') ? 'bold' : '500' }">Productos de linea</router-link>
+        <router-link class="route" to="/productosdelinea" @click="prueba()" :style="{ fontWeight: isRouteActive('/productosdelinea') ? 'bold' : '500' }">Productos de linea</router-link>
         </div>
         <div class="opcion2">
-        <router-link class="route" to="/productosespeciales" :style="{ fontWeight: isRouteActive('/productosespeciales') ? 'bold' : '500' }">Productos Especiales</router-link>
+        <router-link class="route" to="/productosespeciales" @click="prueba()" :style="{ fontWeight: isRouteActive('/productosespeciales') ? 'bold' : '500' }">Productos Especiales</router-link>
         </div>
 
         <div class="opcion2">
@@ -96,6 +96,9 @@ export default {
   methods: {
     isRouteActive(route) {
       return this.$route.path === route;
+    },
+    prueba(){
+      this.$store.commit('setSelectedProductId', null);
     }
   }
 }

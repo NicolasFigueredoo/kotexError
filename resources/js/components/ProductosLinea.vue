@@ -5,8 +5,8 @@
         <div  v-for="producto in productos" :key="producto.id">
           <div class="producto"> 
             <img src="../../img/kotexfooter.png"  alt="imagen" @click="verProducto(producto.id_producto, producto.nombre_producto)">
-            <p class="categoria">{{ producto.nombre_categoria }}</p>
-            <p class="nombre">{{ producto.nombre_producto }}</p>
+            <p class="categoria">{{ producto.nombre_categoria.toUpperCase() }}</p>
+            <p class="nombre">{{ producto.nombre_producto.charAt(0).toUpperCase() + producto.nombre_producto.slice(1) }}</p>
 
           </div>
   
@@ -25,7 +25,6 @@ export default {
   data() {
     return {
       productos: [],
-      mostrarProducto: 1
     };
   },
   mounted() {
@@ -39,7 +38,8 @@ export default {
   },
   methods: {
     verProducto(id,nombre) {
-      this.$emit('ver-producto', [this.mostrarProducto,id,nombre]);
+      this.$emit('ver-producto', [id,nombre]);
+      
     }
   }
 }

@@ -9,11 +9,11 @@
                 <img class="imgP" src="../../img/kotexfooter.png" alt="" />
             </div>
             <div class="textos">
-                <div class="categoria">
+                <div class="categoriaI">
                     <p>Productos de linea</p>
                 </div>
-                <div class="nombre">
-                    <p>{{ nombreProducto }}</p>
+                <div class="nombreI">
+                    <p>{{nombreProducto.charAt(0).toUpperCase() + nombreProducto.slice(1) }}</p>
                 </div>
                 <div class="material">
                     <span>Material</span>
@@ -77,36 +77,35 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td class="rowT" style="padding-left: 0px;">
+                        <td style="padding-left: 0px;">
                             <select v-model="categoriaSeleccionada" class="form-select selects" id="categoria" @change="obtenerProductosNombres">
-                                <option selected>Seleccione</option>
+                                <option value="" selected>Seleccione</option>
                                 <option v-for="categoria in categorias" :key="categoria.id" :value="categoria.nombre">{{ categoria.nombre }}</option>
 
                             </select>
                         </td>
                         <td class="rowT">
                             <select v-model="productoSeleccionado" class="form-select selects" id="nombre" @change="obtenerColorProducto">
-                              <option selected>Seleccione</option>
+                                <option selected>Seleccione</option>
                               <option v-for="producto in productosC" :key="producto.id" :value="producto.nombre">{{ producto.nombre }}</option>
                             </select>
                         </td>
                         <td class="rowT">
                             <select v-model="colorSeleccionado" class="form-select selects" id="color" @change="obtenerMedidas">
-                              <option selected>Seleccione</option>
+                                <option selected>Seleccione</option>
                               <option v-for="productoColor in coloresS" :key="productoColor.id" :value="productoColor">{{ productoColor }}</option>
 
                             </select>
                         </td>
                         <td class="rowT">
                             <select v-model="medidaSeleccionada" class="form-select selects" id="medida" @change="obtenerUnidadVenta">
-                                <option selected>Seleccione..</option>
+                                <option selected>Seleccione</option>
                                 <option v-for="medida in medidasS" :key="medida.id" :value="medida">{{ medida }}</option>
-
                             </select>
                         </td>
                         <td class="rowT">
                             <select v-model="unidadSeleccionada" class="form-select selects" id="unidadventa">
-                                <option selected>Seleccione..</option>
+                                <option selected>Seleccione</option>
                                 <option v-for="unidad in unidadesS" :key="unidad.id" :value="unidad">{{ unidad }}</option>
 
                             </select>
@@ -121,48 +120,47 @@
                             </button>
                         </td>
                     </tr>
-                    <tr>
-                        <td class="rowT" style="padding-left: 0px;">
-                        
-                        </td>
-                        <td class="rowT">
-                          
-                        </td>
-                        <td class="rowT">
-                        
-                        </td>
-                        <td class="rowT">
-                          
-                        </td>
-                        <td class="rowT">
-                          
-                        </td>
-                        <td style="padding-right: 0px">
-                          
-                        </td>
+               
 
+                    <tr v-for="registro in registros" :key="registro.idRegistro">
+
+                        <td>{{ registro.categoria }}</td>
+                        <td>{{ registro.nombre }}</td>
+                        <td>{{ registro.color }}</td>
+                        <td>{{ registro.medida }}</td>
+                        <td>{{registro.unidadVenta}}</td>
+                        <td>{{registro.cantidad}}</td>
                         <td id="botonAgregar" style="padding-right: 0px; padding-left: 0px">
-                            <button id="agregar" type="button" style="border-radius: 0%" class="btn btn-primary">
+                            <button id="agregar" type="button" style="border-radius: 0%" class="btn btn-primary" @click="deleteProducto(registro.idRegistro)">
                               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
                                 <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0z"/>
                                 <path d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4zM2.5 3h11V2h-11z"/>
                               </svg>
                             </button>
                         </td>
+
                     </tr>
+                    
+
+                    
                 </tbody>
             </table>
             <div class="botones">
 
+                <router-link class="route" to="/productosespeciales" :style="{ fontWeight: isRouteActive('/productosespeciales') ? 'bold' : '500' }">
                 <button
                     id="agregarProducto"
                     type="button"
                     style="border-radius: 0%"
                     class="btn btn-primary"
+                    @click="deleteProductoElegido()"
                 >
                     + AGREGAR MAS PRODUCTOS
                 </button>
-                
+            </router-link>
+
+            <router-link class="route" to="/presupuesto" :style="{ fontWeight: isRouteActive('/presupuesto') ? 'bold' : '500' }">
+
                 <button
                     id="verPresupuesto"
                     type="button"
@@ -171,47 +169,52 @@
                 >
                     VER PRESUPUESTO
                 </button>
+            </router-link>
+
             </div>
         </div>
 
-        <div class="productosRelacionados">
-            <p class="productosR">Productos Relacionados</p>
-            <div>
-                <div class="productos">
-                    <div
-                        v-for="producto in productos.slice(0, 4)"
-                        :key="producto.id"
-                    >
-                        <div class="producto">
-                            <img
-                                :src="'../../img/' + producto.imagen"
-                                alt="imagen"
-                            />
-                            <p class="categoria">{{ producto.categoria }}</p>
-                            <p class="nombre">{{ producto.nombre }}</p>
-                        </div>
-                    </div>
-                </div>
+        <div class="productosDestacados">
+            <p class="productosD">Productos destacados</p>
+      <div>
+        <Carousel :items-to-show="4"  class="carouselP">
+          <Slide v-for="producto in productosRelacionados" :key="producto.id_variacion">
+            <div class="carousel__item" @click="verProducto(producto.id_variacion)">
+              <div class="producto"> 
+                <img src="../../img/kotexfooter.png" alt="imagen">
+                <p class="categoria">{{ producto.nombre_categoria }}</p>
+                <p class="nombre">{{ producto.nombre_producto }}</p>
+              </div>
             </div>
-        </div>
+          </Slide>
 
-        <h1>{{ idProducto }}</h1>
+          <template #addons>
+            <Pagination />
+          </template>
+        </Carousel>
+      </div>
+    </div>
     </div>
 </template>
 
 <script>
 import AOS from "aos";
 import axios from "axios";
+import { Carousel, Navigation, Slide, Pagination  } from 'vue3-carousel';
+import 'vue3-carousel/dist/carousel.css';
 
 export default {
-    props: {
-        idProducto: {
-            type: Number,
-        },
-    },
+    name: 'informacion Producto',
+    components: {
+    Pagination,
+    Carousel,
+    Slide,
+    Navigation,
+  },
     data() {
         return {
-            productos: [],
+            registroCount: 1,
+            productosRelacionados: [],
             medidas: [],
             aplicaciones: [],
             nombreProducto: "",
@@ -220,27 +223,49 @@ export default {
             medidasS: [],
             coloresS: [],
             unidadesS: [],
-            registros: [],
-            categoriaSeleccionada: null,
-            productoSeleccionado: null,
-            colorSeleccionado: null,
-            medidaSeleccionada: null,
-            unidadSeleccionada: null,
-            cantidadSeleccionada: null,
+            categoriaId: null,
+            categoriaSeleccionada: ' ',
+            productoSeleccionado: ' ',
+            colorSeleccionado: ' ',
+            medidaSeleccionada: ' ',
+            unidadSeleccionada: ' ',
+            cantidadSeleccionada: ' ',
             settings: {
-                itemsToShow: 1,
-                snapAlign: "center",
+            itemsToShow: 1,
+            snapAlign: 'center',
             },
+            breakpoints: {
+            700: {
+            itemsToShow: 3.5,
+            snapAlign: 'center',
+            },
+            1024: {
+                itemsToShow: 5,
+                snapAlign: 'start',
+        },
+      },
         };
+    },
+
+    computed: {
+        registros() {
+            const registros = this.$store.getters.obtenerRegistros;
+            return registros;
+        },
+
+        idProducto(){
+            const selectedProductId = this.$store.getters['getSelectedProductId'];
+            return selectedProductId;
+        }
     },
     methods: {
         obtenerInformacionProducto() {
-            axios
-                .get(`/api/obtenerInformacionProducto/${this.idProducto}`)
+            axios.get(`/api/obtenerInformacionProducto/${this.idProducto}`)
                 .then((response) => {
                     this.medidas = response.data.medidas;
                     this.aplicaciones = response.data.aplicaciones;
                     this.nombreProducto = response.data.nombre_producto;
+                    this.categoriaId = response.data.categorias[0];
                 })
                 .catch((error) => {
                     console.error(
@@ -253,7 +278,10 @@ export default {
         obtenerCategorias(){
           axios.get(`/api/obtenerCategorias`)
                 .then((response) => {
+                    console.log(response.data)
                     this.categorias = response.data
+                    this.categoriaSeleccionada = this.categorias[0];
+                    console.log(this.categoriaSeleccionada)
                 })
                 .catch((error) => {
                     console.error(
@@ -264,10 +292,8 @@ export default {
         },
 
         obtenerProductosNombres() {
-            axios
-                .get(`/api/obtenerNombresProducto/${this.categoriaSeleccionada}`)
+            axios.get(`/api/obtenerNombresProducto/${this.categoriaSeleccionada}`)
                 .then((response) => {
-                  console.log(response.data)
                   this.productosC = response.data;
             
                 })
@@ -329,34 +355,75 @@ export default {
                 });
         },
 
-        guardarProducto(){
+        guardarProducto() {
+            if (
+                this.categoriaSeleccionada &&
+                this.productoSeleccionado &&
+                this.colorSeleccionado &&
+                this.medidaSeleccionada &&
+                this.unidadSeleccionada &&
+                this.cantidadSeleccionada
+            ) {
+                const nuevoRegistro = {
+                    idRegistro: this.registroCount,
+                    categoria: this.categoriaSeleccionada,
+                    nombre: this.productoSeleccionado,
+                    color: this.colorSeleccionado,
+                    medida: this.medidaSeleccionada,
+                    unidadVenta: this.unidadSeleccionada,
+                    cantidad: this.cantidadSeleccionada
+                };
+                this.$store.commit('agregarRegistro', nuevoRegistro);
+                this.registroCount += 1;
+            } else {
+                alert('Por favor, complete todos los campos antes de guardar.');
+            }
+        },
 
-          const nuevoRegistro = {
-            categoria: this.categoriaSeleccionada,
-            nombre: this.productoSeleccionado,
-            color: this.colorSeleccionado,
-            medida: this.medidaSeleccionada,
-            unidadVenta: this.unidadSeleccionada,
-            cantidad: this.cantidadSeleccionada
-          };
+        deleteProductoElegido(){
+            this.$store.commit('setSelectedProductId', null);
+        },
 
+        deleteProducto(idRegistro){
+          this.$store.commit('eliminarRegistro', idRegistro );
+        },
 
-          this.registros.push(nuevoRegistro);
+        isRouteActive(route){
+            return this.$route.path === route;
+        },
 
+        obtenerProductosRelacionados() {
+            axios.get(`/api/obtenerProductosRelacionados/${this.categoriaId}` ).then((response) => {
+                    this.productosRelacionados = response.data
+                }).catch((error) => {
+                    console.error("Error al obtener productos relacionados",error);
+                });
+        },
 
-          const jsonData = JSON.stringify(this.registros);
-          console.log(jsonData)
-
-
-
+        verProducto(productId) {
+            this.$store.commit('setSelectedProductId', productId);
+            this.obtenerInformacionProducto();
+            this.$router.push('/productosdelinea');
         }
+
+       
+        
    
     },
     mounted() {
+       
         AOS.init();
         this.obtenerCategorias();
         this.obtenerInformacionProducto();
+        setTimeout(() => {
+            this.obtenerProductosRelacionados();
+        }, 1000);
+
+        
+        
+
     },
+
 };
 </script>
 
@@ -369,10 +436,10 @@ export default {
     width: 600px;
     margin-left: 20px;
 }
-.categoria {
+.categoriaI {
     margin-left: 0px;
 }
-.categoria p {
+.categoriaI p {
     color: var(--azul, #33447f);
     font-family: "Montserrat";
     font-size: 18px;
@@ -382,7 +449,7 @@ export default {
     text-transform: uppercase;
 }
 
-.nombre p {
+.nombreI p {
     color: #000;
     font-family: "Montserrat";
     font-size: 35px;
@@ -577,55 +644,6 @@ export default {
     margin-top: 20px;
 }
 
-.producto {
-    width: 305px;
-    height: 500px;
-    background-color: white;
-    color: #33447f;
-    border-bottom: 1px solid rgba(147, 147, 147, 0.3);
-    margin-right: 20px;
-}
-
-.producto img {
-    width: 288px;
-    height: 300px;
-}
-
-.productos {
-    display: flex;
-    margin-left: 0px;
-}
-
-.productosRelacionados {
-    margin-left: 17%;
-    margin-top: 80px;
-}
-
-.productosR {
-    color: #000;
-    font-family: Montserrat;
-    font-size: 28px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: normal;
-}
-.nombre {
-    font-size: 22px;
-    color: black;
-    font-family: "Montserrat", sans-serif;
-    font-weight: 500;
-    line-height: 26px;
-    text-align: left;
-}
-.categoria {
-    font-size: 14px;
-    font-weight: 700;
-    font-family: "Montserrat", sans-serif;
-    color: #33447f;
-    line-height: 17px;
-    margin-top: 20px;
-    text-align: left;
-}
 
 .imgP {
     width: 496px;
@@ -649,5 +667,70 @@ export default {
   border: 1px solid rgba(204, 204, 204, 1);
   height: 38px;
   width: 60px;
+}
+
+
+
+.productosDestacados{
+  height: 800px;
+}
+
+.productosD{
+  font-size: 35px;
+  font-weight: 600;
+  text-align: left;
+  font-family: "Montserrat", sans-serif;
+  margin-left: 17%;
+  padding-top: 70px;
+}
+
+.carouselP{
+  padding-left: 16.5%;
+  width: 83%;
+}
+
+
+
+.categoria{
+  font-size: 14px;
+  font-weight: 700;
+  font-family: "Montserrat", sans-serif;
+  color: #33447F;
+  line-height: 17px;
+  margin-top: 20px;
+  margin-left: 10px;
+  text-align: left;
+
+}
+
+.producto{
+  cursor: pointer;
+  padding: 20px;
+  width: 320px;
+  height: 500px;
+  background-color: white;
+  color: #33447F;
+  border-bottom: 1px solid rgba(147, 147, 147, 0.3);
+}
+
+.producto:hover{
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+
+}
+
+.nombre{
+  font-size: 22px;
+  color: black;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+  line-height: 26px;
+  margin-left: 10px;
+  text-align: left;
+
+}
+
+.producto img{
+  width: 288px;
+  height: 300px;
 }
 </style>
