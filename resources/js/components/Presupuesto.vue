@@ -37,7 +37,6 @@
         <table class="table">
           <thead style="height: 40px;" >
             <tr>
-              <th scope="col" class="encabezado">Cód.</th>
               <th scope="col" class="encabezado">Categoria</th>
               <th scope="col" class="encabezado">Nombre</th>
               <th scope="col" class="encabezado">Color</th>
@@ -49,9 +48,6 @@
           </thead>
         <tbody>
           <tr>
-            <td class="rowT" scope="row">
-              <p>123</p>
-            </td>
             <td class="rowT">
               <p>Productos de linea</p>
             </td>

@@ -4,6 +4,7 @@ import Catalogo from '../views/catalogo/CatalogoView.vue';
 import ProductosLinea from '../views/productosDeLinea/ProductosLineaView.vue';
 import Presupuesto from '../views/presupuesto/PresupuestoView.vue';
 import Contacto from '../views/contacto/ContactoView.vue';
+import ProductosEspeciales from '../views/productosEspeciales/ProductosEspecialesView.vue';
 
 import Aplicaciones from '../components/Aplicaciones.vue';
 
@@ -24,17 +25,16 @@ const routes = [
         path: '/nosotros',
         name: 'Nosotros',
         component: Nosotros
-    },  
-    {
-        path: '/productosdelinea/:id',
-        name: 'ProductosLineaId',
-        component: ProductosLinea
-    },
-   
+    },   
     {
         path: '/productosdelinea',
         name: 'ProductosLinea',
         component: ProductosLinea
+    },
+    {
+        path: '/productosespeciales',
+        name: 'ProductosEspeciales',
+        component: ProductosEspeciales
     },
     {
         path: '/catalogo',
@@ -59,9 +59,14 @@ const routes = [
     }
 ];
 
+
 const router = createRouter({
     history: createWebHistory(),
-    routes
+    routes,
+    scrollBehavior(to, from, savedPosition) {
+        return { left: 0, top: 0 };
+    }
 });
+
 
 export default router;

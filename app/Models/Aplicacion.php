@@ -8,9 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class Aplicacion extends Model
 {
     use HasFactory;
+    protected $table = 'aplicaciones';
 
-    protected $fillable = [
-        'nombre',
-        'imagen'
-    ];
+    protected $fillable = ['nombre', 'imagen'];
+
+
+        public function variaciones()
+    {
+        return $this->belongsToMany(Variacion::class, 'variacion_aplicacion');
+    }
 }

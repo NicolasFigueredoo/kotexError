@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Producto extends Model
+class Categoria extends Model
 {
     use HasFactory;
 
@@ -13,6 +13,6 @@ class Producto extends Model
 
     public function variaciones()
     {
-        return $this->hasMany(Variacion::class);
+        return $this->belongsToMany(Variacion::class, 'variacion_categoria', 'categoria_id', 'variacion_id');
     }
 }

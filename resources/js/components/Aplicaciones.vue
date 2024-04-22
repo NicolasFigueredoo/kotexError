@@ -5,7 +5,7 @@
         <div class="aplicaciones" >
           <div  v-for="aplicacion in aplicaciones" :key="aplicacion.id">
             <div class="aplicacion"> 
-              <img :src="'../../img/' + aplicacion.imagen"  alt="imagen" class="imgAplicacion">
+              <img :src="'../../img/aplicaciones/' + aplicacion.imagen "  alt="imagen" class="imgAplicacion">
               <p class="nombre">{{ (aplicacion.nombre).toUpperCase() }}</p>
   
             </div>
@@ -30,6 +30,7 @@
     mounted() {
       axios.get('/api/aplicaciones')
         .then(response => {
+          console.log(response.data)
           this.aplicaciones = response.data;
         })
         .catch(error => {
@@ -45,9 +46,11 @@
   
 .aplicacionesDiv{
   display: flex;
-  justify-content: center;
-  width: 800px;
-  margin-left: 26%;
+  justify-content: left;
+  margin-left: 15.6%;
+  margin-right: auto;
+  width: 75%;
+  margin-bottom: 100px;
 
 }
 .nombre{
@@ -57,13 +60,12 @@
   font-family: "Montserrat", sans-serif;
   font-weight: 600;
   line-height: 26px;
+  margin-top: 30px;
 }
 
 .aplicaciones{
-  height: 1200px;
-  display: grid;
-  grid-template-rows: repeat(2, 40%);
-  grid-template-columns: repeat(4, 27%);
+  display: flex;
+  flex-wrap: wrap; 
 }
 
 .aplicacion img{
@@ -81,6 +83,8 @@
   height: 410px;
   background-color: white;
   color: #33447F;
+  margin-right: 30px;
+  margin-left: 25px;
 
 }
 

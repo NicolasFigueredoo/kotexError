@@ -1,12 +1,10 @@
 <template>
   <nav class="navbar navbar-expand-lg" style="background-color: white; box-shadow: 0 3px 23px 0 rgba(0, 0, 0, 0.1);">
   <div class="container-fluid">
-    <img id="imgkotex" src="../../img/kotex.jpg" alt="">
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-  
+    <router-link class="route" to="/home" :style="{ fontWeight: isRouteActive('/home') ? 'bold' : '500' }"><img id="imgkotex" src="../../img/kotex.jpg" alt=""></router-link>
 
+    
+   
     <div class="containerN">
 
     <div class="contenidoNav">
@@ -53,7 +51,9 @@
 
         <div class="opcion2">
         <router-link class="route" to="/productosdelinea" :style="{ fontWeight: isRouteActive('/productosdelinea') ? 'bold' : '500' }">Productos de linea</router-link>
-    
+        </div>
+        <div class="opcion2">
+        <router-link class="route" to="/productosespeciales" :style="{ fontWeight: isRouteActive('/productosespeciales') ? 'bold' : '500' }">Productos Especiales</router-link>
         </div>
 
         <div class="opcion2">
@@ -83,7 +83,7 @@
 </nav>
 
 <div class="whatsapp-container">
-  <a href="https://wa.me/xxxxxxxxxx" target="_blank" class="whatsapp-link">
+  <a href="https://wa.me/+541144466664" target="_blank" class="whatsapp-link">
     <font-awesome-icon class="contactoWhat" :icon="['fab', 'whatsapp']" />
   </a>
 </div>
@@ -147,7 +147,7 @@ export default {
 .contenidoNav2{
     display: flex;
     margin-top: 20px;
-    margin-left: 18.7%;
+    margin-left: 3.7%;
 
 }
 

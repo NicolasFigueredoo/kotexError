@@ -1,10 +1,10 @@
 <template>
   <div>
-    <div class="productoslinea">
+    <div class="productosEspeciales">
       <div class="productos" >
         <div  v-for="producto in productos" :key="producto.id">
           <div class="producto"> 
-            <img src="../../img/kotexfooter.png"  alt="imagen" @click="verProducto(producto.id_producto, producto.nombre_producto)">
+            <img src="../../img/kotexfooter.png"  alt="imagen" @click="verProducto(producto.producto_id, producto.nombre_producto)">
             <p class="categoria">{{ producto.nombre_categoria }}</p>
             <p class="nombre">{{ producto.nombre_producto }}</p>
 
@@ -29,7 +29,7 @@ export default {
     };
   },
   mounted() {
-    axios.get('/api/obtenerProductosDeLinea')
+    axios.get('/api/obtenerProductosEspeciales')
       .then(response => {
         this.productos = response.data;
       })
@@ -49,7 +49,7 @@ export default {
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
 
-.productoslinea {
+.productosEspeciales {
   display: flex;
   justify-content: left;
   margin-left: 16.5%;

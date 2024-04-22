@@ -1,6 +1,7 @@
 import { createApp } from 'vue';
 import App from './app.vue';
 import router from './router/index.js';
+import store from './store/store.js';
 
 //bootstrap
 import 'bootstrap';
@@ -22,5 +23,6 @@ library.add(faEnvelope,faWhatsapp,faMagnifyingGlass, faFacebookF, faInstagram,
 const app = createApp(App);
 app.component('font-awesome-icon', FontAwesomeIcon)
 app.use(router);
+app.use(store);
 app.mount('#app'); 
 

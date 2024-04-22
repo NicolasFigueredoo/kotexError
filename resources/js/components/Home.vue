@@ -2,8 +2,9 @@
   <div>
     <div class="textoImg" data-aos="fade-right" data-aos-duration="2000">>
       <p>Fabricamos cintas elásticas para la industria en general</p>
+      <router-link class="route" to="/nosotros" :style="{ fontWeight: isRouteActive('/nosotros') ? 'bold' : '500' }">
       <button type="button"  class="btn masInformacion" >MÁS INFORMACIÓN</button>
-
+      </router-link>
     </div>
 
     <div id="carouselExampleIndicators" class="carousel slide">
@@ -41,10 +42,12 @@
         <p class="titleSeccion">Productos</p>
         <div class="imagenes">
           <div style="margin-right: 2.5%;" data-aos="fade-up" data-aos-anchor-placement="center-bottom" data-aos-duration="2000">
+            <router-link class="route" to="/productosdelinea" :style="{ fontWeight: isRouteActive('/productosdelinea') ? 'bold' : '500' }">
             <p class="tituloImg">PRODUCTOS DE LINEA</p>
             <div class="imagen-contenedor" >
               <img class="imgS zoomable" src="../../img/productos.png" alt="">
           </div>
+        </router-link>
           </div>
           <div  data-aos="fade-up" data-aos-anchor-placement="center-bottom" data-aos-duration="2000">
             <p class="tituloImg">PRODUCTOS ESPECIALES</p>
@@ -67,8 +70,9 @@
             <p class="text" ><b class="kotex">Kotex SRL</b>, fábrica de cintas elásticas y rígidas de crochet, es una empresa familiar con casi 30 años en el rubro textil.</p>
             <p class="text" style="margin-top: 50px;">Por la calidad de nuestros productos y especial enfoque en la “atención personalizada” ocupamos un lugar de preferencia entre las empresas confeccionistas de reconocidas marcas.</p>
           </div>
+          <router-link class="route" to="/nosotros" :style="{ fontWeight: isRouteActive('/nosotros') ? 'bold' : '500' }">
           <button type="button" class="btn masInformacion2" data-aos="fade-left" data-aos-duration="2000">MÁS INFORMACIÓN</button>
-
+          </router-link>
       </div>
     </div>
 
@@ -100,12 +104,12 @@
       <p class="productosD">Productos destacados</p>
       <div>
         <Carousel :items-to-show="4"  class="carouselP">
-          <Slide v-for="producto in productos" :key="producto.id">
+          <Slide v-for="producto in productos.slice(0, 10)" :key="producto.id">
             <div class="carousel__item" data-aos="fade-up" data-aos-duration="2000" @click="verProducto(producto.id)">
-              <div class="producto" > 
-                <img :src="'../../img/' + producto.imagen" alt="imagen">
-                <p class="categoria">{{ producto.categoria }}</p>
-                <p class="nombre">{{ producto.nombre }}</p>
+              <div class="producto"> 
+                <img src="../../img/kotexfooter.png" alt="imagen">
+                <p class="categoria">{{ producto.categorias[0].nombre }}</p>
+                <p class="nombre">{{ producto.producto.nombre }}</p>
               </div>
             </div>
           </Slide>
@@ -124,15 +128,17 @@
 <script>
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-import { defineComponent } from 'vue';
 import { Carousel, Navigation, Slide, Pagination  } from 'vue3-carousel';
 import 'vue3-carousel/dist/carousel.css';
 import axios from 'axios';
+import { defineComponent, ref, onMounted } from 'vue';
+import { useStore } from 'vuex';
+import { useRouter } from 'vue-router';
 
 
 export default defineComponent({
 
-  name: 'Breakpoints',
+  name: 'Home',
   components: {
     Pagination,
     Carousel,
@@ -160,16 +166,43 @@ export default defineComponent({
     
   },
 
-  
-  mounted() {
-    AOS.init();
-    axios.get('/api/productosdelinea')
-      .then(response => {
-        this.productos = response.data;
-      })
-      .catch(error => {
-        console.error('Error al traer los productos:', error);
-      });
+  setup() {
+    const productos = ref([]);
+    const store = useStore();
+    const router = useRouter();
+
+    const verProducto = (productId) => {
+      store.commit('setSelectedProductId', productId);
+      router.push('/productosdelinea');
+
+    };
+
+    const isRouteActive = (route) => {
+      return router.currentRoute.value.path === route;
+    };
+
+    const obtenerProductosLinea = () => {
+      axios.get('/api/obtenerProductos')
+        .then(response => {
+          productos.value = response.data;
+          
+        })
+        .catch(error => {
+          console.error('Error al traer los productos:', error);
+        });
+    };
+    
+
+    onMounted(() => {
+      AOS.init();
+      obtenerProductosLinea();
+    });
+
+    return {
+      productos,
+      verProducto,
+      isRouteActive
+    };
   }
 
   
@@ -223,6 +256,7 @@ export default defineComponent({
   height: 300px;
 }
 .producto{
+  cursor: pointer;
   padding: 20px;
   width: 320px;
   height: 500px;

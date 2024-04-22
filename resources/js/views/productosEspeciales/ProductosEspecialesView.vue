@@ -1,24 +1,24 @@
 <template>
     <div class="productosLinea-view">
       <div class="indicador">
-        <p v-if="nombreProducto">{{`Inicio > Productos de línea > ${nombreProducto}`}}</p>
-        <p v-else>Inicio > Productos de línea</p>
+        <p v-if="nombreProducto">{{`Inicio > Productos Especiales > ${nombreProducto}`}}</p>
+        <p v-else>Inicio > Productos Especiales</p>
       </div>
 
-      <ProductosLinea v-if="mostrarComponente === 0" @ver-producto="mostrarProducto"/>
+      <productosEspeciales v-if="mostrarComponente === 0" @ver-producto="mostrarProducto"/>
       <InformacionProducto v-else :id-producto="idProducto" />
     </div>
   </template>
   
   <script>
-  import ProductosLinea from "@/components/ProductosLinea.vue";
+  import productosEspeciales from "@/components/ProductosEspeciales.vue";
   import InformacionProducto from "@/components/InformacionProducto.vue";
   import { computed } from 'vue';
   import { useStore } from 'vuex';
   
   export default {
   components: {
-    ProductosLinea,
+    productosEspeciales,
     InformacionProducto
   },
 
