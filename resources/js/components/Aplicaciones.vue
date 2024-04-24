@@ -6,11 +6,8 @@
             <div class="aplicacion" @click="verAplicacion(aplicacion.id, aplicacion.nombre)"> 
               <img :src="'../../img/aplicaciones/' + aplicacion.imagen"  alt="imagen" class="imgAplicacion" >
               <p class="nombre">{{ (aplicacion.nombre).toUpperCase() }}</p>
-  
             </div>
-    
           </div>
-    
         </div>
   
       </div>

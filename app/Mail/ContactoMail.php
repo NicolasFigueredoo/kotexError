@@ -37,6 +37,8 @@ class ContactoMail extends Mailable
      */
     public function build()
     {
-        return $this->subject('Nuevo mensaje de contacto')->markdown('emails.contacto');
+        return $this->from($this->email)
+        ->view('emails.contacto')
+        ->subject('Nuevo mensaje de contacto');
     }
 }

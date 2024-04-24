@@ -9,6 +9,8 @@ import ProductosEspeciales from '../views/productosEspeciales/ProductosEspeciale
 
 import Aplicaciones from '../views/aplicaciones/AplicacionesView.vue';
 import Home from '../views/home/HomeView.vue';
+import Admin from '../views/admin/login/AdminView.vue';
+import PanelAdmin from '../views/admin/panel/panelView.vue';
 
 
 const routes = [
@@ -56,7 +58,18 @@ const routes = [
         path: '/contacto',
         name: 'Contacto',
         component: Contacto
+    },
+    {
+        path: '/admin',
+        name: 'Admin',
+        component: Admin
+    },
+    {
+        path: '/panelAdmin',
+        name: 'PanelAdmin',
+        component: PanelAdmin
     }
+
 ];
 
 

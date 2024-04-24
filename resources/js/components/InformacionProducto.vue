@@ -426,7 +426,6 @@ export default {
         },
 
         verProducto(productId) {
-            console.log(productId, 'nini')
             this.$store.commit('setSelectedProductId', productId);
             this.obtenerInformacionProducto();
             if (this.categoria === 'Productos de linea') {

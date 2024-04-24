@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use App\Mail\ContactoMail;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
@@ -24,9 +23,7 @@ class EmailsController extends Controller
         
 
             $mail = new ContactoMail($nombre, $apellido, $email, $celular, $mensaje);
-            Mail::to('gtytptsp@gmail.com')->send($mail);
-
-
-        return response()->json(['message' => 'Correo enviado correctamente']);
-    }
+            Mail::to('gtyt@outlook.com.ar')->send($mail);           
+            return response()->json($request->nombre,$request->email);
+}
 }

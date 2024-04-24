@@ -4,6 +4,7 @@ use App\Http\Controllers\AplicacionController ;
 use App\Http\Controllers\CategoriaController;
 use App\Http\Controllers\EmailsController;
 use App\Http\Controllers\SuscripcionController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\VariacionesController;
 
@@ -37,3 +38,7 @@ Route::post('/enviarCorreo', [EmailsController::class, 'enviarCorreo']);
 
 //suscripciones
 Route::post('/api/agregarSuscripcion', [SuscripcionController::class, 'agregarSuscripcion']);
+
+//usuarios
+Route::post('/api/crearUsuario', [UserController::class, 'store']);
+Route::post('/api/verificarLogin', [UserController::class, 'show']);

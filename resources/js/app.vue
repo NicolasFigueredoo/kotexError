@@ -1,13 +1,12 @@
 <template>
-
-<Navbar_boot></Navbar_boot>
-<router-view></router-view>
-<Footer_boot></Footer_boot>
+  <div>
+    <Navbar_boot v-if="!isAdminRoute && !isAdminPanel"></Navbar_boot>
+    <router-view></router-view>
+    <Footer_boot v-if="!isAdminRoute && !isAdminPanel"></Footer_boot>
+  </div>
 </template>
 
 <script>
-
-
 import Navbar_boot from './components/Navbar.vue';
 import Footer_boot from './components/Footer.vue';
 
@@ -16,7 +15,27 @@ export default {
   components: {
     Navbar_boot,
     Footer_boot
- }
-}
-</script>
+  },
+  data() {
+    return {
+      isAdminRoute: false,
+      isAdminPanel: false,
+    };
+  },
+  created() {
+    this.checkAdminRoute();
+  },
+  watch: {
+    '$route'(to, from) {
+      this.checkAdminRoute();
+    }
+  },
+  methods: {
+    checkAdminRoute() {
+      this.isAdminRoute = this.$route.path.startsWith('/admin');
+      this.isAdminPanel = this.$route.path.startsWith('/panelAdmin');
 
+    }
+  }
+};
+</script>
