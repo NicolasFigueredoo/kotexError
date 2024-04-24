@@ -42,7 +42,7 @@
         <p class="titleSeccion">Productos</p>
         <div class="imagenes">
           <div style="margin-right: 2.5%;" data-aos="fade-up" data-aos-anchor-placement="center-bottom" data-aos-duration="2000">
-            <router-link class="route" to="/productosdelinea" :style="{ fontWeight: isRouteActive('/productosdelinea') ? 'bold' : '500' }">
+            <router-link class="route" to="/productosdelinea" :style="{ fontWeight: isRouteActive('/productosdelinea') ? 'bold' : '500' }" @click="this.$store.commit('setSelectedProductId', null);">
             <p class="tituloImg">PRODUCTOS DE LINEA</p>
             <div class="imagen-contenedor" >
               <img class="imgS zoomable" src="../../img/productos.png" alt="">
@@ -50,8 +50,7 @@
         </router-link>
           </div>
           <div  data-aos="fade-up" data-aos-anchor-placement="center-bottom" data-aos-duration="2000">
-            <router-link class="route" to="/productosespeciales" :style="{ fontWeight: isRouteActive('/productosespeciales') ? 'bold' : '500' }">
-
+            <router-link class="route" to="/productosespeciales" :style="{ fontWeight: isRouteActive('/productosespeciales') ? 'bold' : '500' } " @click="this.$store.commit('setSelectedProductId', null);">
             <p class="tituloImg">PRODUCTOS ESPECIALES</p>
             <div class="imagen-contenedor">
             <img class="imgS zoomable" src="../../img/productos2.png" alt="">
@@ -108,8 +107,8 @@
       <p class="productosD">Productos destacados</p>
       <div>
         <Carousel :items-to-show="4"  class="carouselP">
-          <Slide v-for="producto in productos.slice(0, 10)" :key="producto.id_variacion">
-            <div class="carousel__item" data-aos="fade-up" data-aos-duration="2000" @click="verProducto(producto.id_variacion)">
+          <Slide v-for="producto in productos.slice(0, 10)" :key="producto.id_producto">
+            <div class="carousel__item" data-aos="fade-up" data-aos-duration="2000" @click="verProducto(producto.id_producto)">
               <div class="producto"> 
                 <img src="../../img/kotexfooter.png" alt="imagen">
                 <p class="categoria">{{ producto.nombre_categoria }}</p>
@@ -186,9 +185,8 @@ export default defineComponent({
     };
 
     const obtenerProductosDestacados = () => {
-      axios.get('/api/obtenerProductosRelacionados/3')
+      axios.get('/api/obtenerProductosDestacados')
         .then(response => {
-          console.log(response.data)
           productos.value = response.data;
           
         })
@@ -223,8 +221,8 @@ export default defineComponent({
   height: 800px;
 }
 .carouselP{
-  padding-left: 17.5%;
-  width: 90%;
+  padding-left: 16.5%;
+  width: 82%;
 }
 
 .nombre{

@@ -1,11 +1,10 @@
 <template>
     <div>
-      <div class="indicador"><p>Inicio > Aplicaciones</p></div>
       <div class="aplicacionesDiv">
         <div class="aplicaciones" >
           <div  v-for="aplicacion in aplicaciones" :key="aplicacion.id">
-            <div class="aplicacion"> 
-              <img :src="'../../img/aplicaciones/' + aplicacion.imagen "  alt="imagen" class="imgAplicacion">
+            <div class="aplicacion" @click="verAplicacion(aplicacion.id, aplicacion.nombre)"> 
+              <img :src="'../../img/aplicaciones/' + aplicacion.imagen"  alt="imagen" class="imgAplicacion" >
               <p class="nombre">{{ (aplicacion.nombre).toUpperCase() }}</p>
   
             </div>
@@ -27,10 +26,15 @@
         aplicaciones: []
       };
     },
+    methods:{
+      verAplicacion(id,nombre){
+        this.$emit('ver-aplicacion', [id,nombre]);
+      }
+
+    },
     mounted() {
       axios.get('/api/aplicaciones')
         .then(response => {
-          console.log(response.data)
           this.aplicaciones = response.data;
         })
         .catch(error => {
@@ -86,18 +90,5 @@
   margin-right: 30px;
   margin-left: 25px;
 
-}
-
-.indicador{
-    color: black;
-    margin-top: 10px;
-    margin-left: 17%;
-    font-size: 15px;
-    font-weight: 500;
-    font-family: "Montserrat", sans-serif;
-    line-height: 60px;
-}
-
-
-  
+}  
   </style>

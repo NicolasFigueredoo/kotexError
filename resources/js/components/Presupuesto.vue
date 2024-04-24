@@ -112,7 +112,6 @@ export default {
   computed: {
     registros() {
       const registros = this.$store.getters.obtenerRegistros;
-      console.log(registros)
       return registros;
     },
 
@@ -133,7 +132,8 @@ export default {
 
 <style scoped>
 .presupuestoDiv {
-  height: 950px;
+  min-height: 950px; 
+  overflow-y: auto; 
 }
 #agregar {
     border: 1px solid rgba(51, 68, 127, 1);
@@ -232,6 +232,7 @@ export default {
   margin-top: 50px;
   margin-left: 17.5%;
   display: flex;
+  margin-bottom: 200px;
 
 }
 

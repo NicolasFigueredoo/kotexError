@@ -3,6 +3,8 @@ import App from './app.vue';
 import router from './router/index.js';
 import store from './store/store.js';
 
+//zoomer
+
 //bootstrap
 import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css'; 

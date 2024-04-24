@@ -28,7 +28,6 @@ export default {
   },
   methods: {
     mostrarProducto(datosProducto) {
-      console.log(datosProducto)
       this.idProducto = datosProducto[0];
       this.nombreProducto = datosProducto[1].charAt(0).toUpperCase() + datosProducto[1].slice(1);
       this.$store.commit('setSelectedProductId', datosProducto[0]);

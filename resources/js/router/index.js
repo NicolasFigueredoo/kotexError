@@ -7,7 +7,7 @@ import Contacto from '../views/contacto/ContactoView.vue';
 import ProductosLinea from '../views/productosDeLinea/ProductosLineaView.vue';
 import ProductosEspeciales from '../views/productosEspeciales/ProductosEspecialesView.vue';
 
-import Aplicaciones from '../components/Aplicaciones.vue';
+import Aplicaciones from '../views/aplicaciones/AplicacionesView.vue';
 import Home from '../views/home/HomeView.vue';
 
 

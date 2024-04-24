@@ -3,6 +3,7 @@ import { createStore } from 'vuex';
 export default createStore({
   state: {
     selectedProductId: null,
+    selectedAplicacionId: null,
     registros: JSON.parse(localStorage.getItem('registros')) || [],
 
   },
@@ -20,6 +21,10 @@ export default createStore({
     },
     setSelectedProductId(state, productId) {
         state.selectedProductId = productId;
+    },
+
+      setSelectedAplicacionId(state, aplicacionId) {
+        state.selectedAplicacionId = aplicacionId;
       }
   },
   actions: {
@@ -29,10 +34,16 @@ export default createStore({
     getSelectedProductId(state) {
       return state.selectedProductId;
     },
+
+    getSelectedAplicacionId(state) {
+      return state.selectedAplicacionId;
+    },
     
     obtenerRegistros(state) {
       return state.registros;
     },
+
+    
   
   }
 });

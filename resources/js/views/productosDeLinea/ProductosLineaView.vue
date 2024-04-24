@@ -6,7 +6,6 @@
     </div>
 
     <ProductosLinea v-if="!idProducto" @ver-producto="mostrarProducto"/>
-    
     <InformacionProducto v-else :id-producto="idProducto"  />
   </div>
 </template>

@@ -34,35 +34,35 @@
                             <div class="casilla">
                                 <div>
                                     <span>Nombre*</span>
-                                    <input type="text">
+                                    <input type="text" v-model="nombre">
                                 </div>
                                 <div style="margin-left: 35px;">
                                     <span>Apellido*</span>
-                                    <input type="text">
+                                    <input type="text" v-model="apellido">
                                 </div>
                             </div>
                             <div class="casilla" style="margin-top: 10px; ">
                                 <div>
                                     <span>Email*</span>
-                                    <input type="text">
+                                    <input type="text" v-model="email">
                                 </div>
                                 <div style="margin-left: 35px; ">
                                     <span>Celular</span>
-                                    <input type="text">
+                                    <input type="text" v-model="celular">
                                 </div>
                             </div>
         
                             <div style="justify-content: left; margin-top: 10px;" class="casilla">
                                 <div>
                                     <span>Mensaje</span>
-                                    <textarea class="form-control" style="width: 415px; height: 150px; border-radius: 0%;"></textarea>
+                                    <textarea class="form-control" style="width: 415px; height: 150px; border-radius: 0%;" v-model="mensaje"></textarea>
                                 </div>
                                 <div class="enviar">
                                     <div>
                                         <p>*Datos Obligatorios</p>
                                     </div>
                                     <div>
-                                        <button id="enviarContacto" type="button" style="border-radius: 0%;" class="btn btn-primary">ENVIAR CONSULTA</button>
+                                        <button id="enviarContacto" type="button" style="border-radius: 0%;" class="btn btn-primary" @click="enviarCorreo()">ENVIAR CONSULTA</button>
                                     </div>
                                 </div>
                             </div>
@@ -82,7 +82,33 @@
   <script>
   
   export default {
-  
+
+    data() {
+        return {
+            nombre: '',
+            apellido: '',
+            email: '',
+            celular: '',
+            mensaje: ''
+        };
+      },
+      methods: {
+        enviarCorreo() {
+            axios.post('/enviarCorreo', {
+                nombre: this.nombre,
+                apellido: this.apellido,
+                email: this.email,
+                celular: this.celular,
+                mensaje: this.mensaje
+            })
+            .then(response => {
+                console.log(response.data.message);
+            })
+            .catch(error => {
+                console.error(error);
+            });
+        }
+      }
   }
   </script>
   

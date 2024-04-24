@@ -35,17 +35,37 @@ class VariacionesController extends Controller
 
     public function getProductosEspeciales()
     {
-        $variaciones = Variacion::select('productos.id as id_producto', 'productos.nombre as nombre_producto', 'categorias.nombre as nombre_categoria')
+        $variaciones = Variacion::select(
+            'productos.nombre as nombre_producto',
+            'categorias.nombre as nombre_categoria',
+            DB::raw('MIN(variaciones.id) as id_producto')
+        )
             ->join('variacion_categoria', 'variaciones.id', '=', 'variacion_categoria.variacion_id')
             ->join('categorias', 'variacion_categoria.categoria_id', '=', 'categorias.id')
             ->join('productos', 'variaciones.producto_id', '=', 'productos.id')
             ->where('categorias.nombre', 'Productos Especiales')
-            ->groupBy('productos.nombre', 'categorias.nombre', 'productos.id')
+            ->groupBy('productos.nombre', 'categorias.nombre')
             ->get();
 
         return response()->json($variaciones);
     }
 
+    public function getProductosDestacados()
+    {
+        $variaciones = Variacion::select(
+            'productos.nombre as nombre_producto',
+            'categorias.nombre as nombre_categoria',
+            DB::raw('MIN(variaciones.id) as id_producto')
+        )
+            ->join('variacion_categoria', 'variaciones.id', '=', 'variacion_categoria.variacion_id')
+            ->join('categorias', 'variacion_categoria.categoria_id', '=', 'categorias.id')
+            ->join('productos', 'variaciones.producto_id', '=', 'productos.id')
+            ->where('categorias.nombre', 'Productos Destacados')
+            ->groupBy('productos.nombre', 'categorias.nombre')
+            ->get();
+
+        return response()->json($variaciones);
+    }
 
     public function obtenerInformacionProducto($variacionId)
     {
@@ -73,12 +93,16 @@ class VariacionesController extends Controller
         $categorias = $variaciones->map(function ($variacion) {
             return $variacion->categorias->pluck('id')->unique();
         });
+        $categoriasNombre = $variaciones->map(function ($variacion) {
+            return $variacion->categorias->pluck('nombre')->unique();
+        });
 
 
 
         return response()->json([
             'nombre_producto' => $nombre_producto,
             'categorias' => $categorias->flatten()->values(),
+            'categoriasNombre' => $categoriasNombre->flatten()->values(),
             'medidas' => $medidas->flatten()->values(),
             'aplicaciones' => $nombres_aplicaciones,
 
@@ -174,22 +198,23 @@ class VariacionesController extends Controller
         return response()->json($unidadesVenta);
     }
 
-    public function obtenerProductosRelacionados($categoriaId){
+    public function obtenerProductosIdAplicacion($aplicacionId){
+       
 
-        $productosRelacionados = Variacion::select(
-            'productos.id as id_producto',
+        $variaciones = Variacion::select(
             'productos.nombre as nombre_producto',
-            'variaciones.imagen as imagen_variacion',
             'categorias.nombre as nombre_categoria',
-            'variaciones.id as id_variacion'
+            DB::raw('MIN(variaciones.id) as id_producto')
         )
-        ->join('variacion_categoria', 'variaciones.id', '=', 'variacion_categoria.variacion_id')
-        ->join('categorias', 'variacion_categoria.categoria_id', '=', 'categorias.id')
-        ->join('productos', 'variaciones.producto_id', '=', 'productos.id')
-        ->where('categorias.id', $categoriaId)
-        ->groupBy('productos.id', 'productos.nombre', 'variaciones.imagen', 'categorias.nombre', 'variaciones.id')
-        ->get();
-        return response()->json($productosRelacionados);
+            ->join('variacion_categoria', 'variaciones.id', '=', 'variacion_categoria.variacion_id')
+            ->join('categorias', 'variacion_categoria.categoria_id', '=', 'categorias.id')
+            ->join('productos', 'variaciones.producto_id', '=', 'productos.id')
+            ->join('variacion_aplicacion', 'variaciones.id', '=', 'variacion_aplicacion.variacion_id')
+            ->where('variacion_aplicacion.aplicacion_id', $aplicacionId)
+            ->where('variacion_categoria.categoria_id','!=', 3)
+            ->groupBy('productos.nombre', 'categorias.nombre')
+            ->get();
 
+    return $variaciones;
     }
 }

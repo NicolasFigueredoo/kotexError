@@ -31,7 +31,6 @@ export default {
   mounted() {
     axios.get('/api/obtenerProductosEspeciales')
       .then(response => {
-        console.log(response.data)
         this.productos = response.data;
       })
       .catch(error => {
