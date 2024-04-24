@@ -2,11 +2,8 @@
   <nav class="navbar navbar-expand-lg" style="background-color: white; box-shadow: 0 3px 23px 0 rgba(0, 0, 0, 0.1);">
   <div class="container-fluid">
     <router-link class="route" to="/home" :style="{ fontWeight: isRouteActive('/home') ? 'bold' : '500' }"><img id="imgkotex" src="../../img/kotex.jpg" alt=""></router-link>
-
     
-   
     <div class="containerN">
-
     <div class="contenidoNav">
         <div class="opcion1">
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-telephone iconNavbar2" viewBox="0 0 16 16">
@@ -110,11 +107,12 @@ export default {
 
 .navbar{
     height: 160px;
+
 }
 #imgkotex{
     width: 245px;
     height: 92px;
-    margin-left: 310px;
+    margin-left: 16vw;
 }
 .iconNavbar{
     align-items: center;
@@ -135,22 +133,23 @@ export default {
     cursor: pointer;
 
 }
+
 .containerN{
     display: flex;
     flex-direction: column;
     height: 150px;
-    width: 100%;
+    align-items: end;
+    margin-right: 17vw;
+    
 }
 .contenidoNav{
     display: flex;
     margin-top: 50px;
-    margin-left: 24%;
 
 }
 .contenidoNav2{
     display: flex;
     margin-top: 20px;
-    margin-left: 3.7%;
 
 }
 
@@ -222,6 +221,25 @@ export default {
     font-size: 30px;
     color: white;
     padding-top: 15px;
+}
+
+@media only screen and (max-width: 1860px) {
+
+  #imgkotex{
+
+    margin-left: 5vw;
+}
+
+}
+
+
+@media only screen and (max-width: 1600px) {
+
+#imgkotex{
+
+  margin-left: 2vw;
+}
+
 }
 
 </style>

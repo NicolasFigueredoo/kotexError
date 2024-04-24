@@ -51,7 +51,7 @@
 .aplicacionesDiv{
   display: flex;
   justify-content: left;
-  margin-left: 15.6%;
+  margin-left: 16.8%;
   margin-right: auto;
   width: 75%;
   margin-bottom: 100px;
@@ -87,8 +87,7 @@
   height: 410px;
   background-color: white;
   color: #33447F;
-  margin-right: 30px;
-  margin-left: 25px;
+  margin-right: 43px;
 
 }  
   </style>

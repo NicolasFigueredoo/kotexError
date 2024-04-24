@@ -121,11 +121,7 @@
   .contenedorImg{
     width: 100%;
   }
-  .prueba{
-    width: 100%;
 
-    background-size: contain;
-  }
   .contacto{
     background-color: white;
     height: 300px;
@@ -202,7 +198,7 @@
   
 }
 .casilla input{
-  width: 415px;
+  width: 405px;
   height: 50px;
   border: 1px solid #DEDEDE;
   margin-top: 5px;
@@ -227,7 +223,7 @@
   font-family: "Montserrat";
   font-size: 16px;
   font-weight: 300;
-  width: 420px;
+  width: 400px;
   height: 50px;
 }
 

@@ -74,7 +74,7 @@
             <p class="text" style="margin-top: 50px;">Por la calidad de nuestros productos y especial enfoque en la “atención personalizada” ocupamos un lugar de preferencia entre las empresas confeccionistas de reconocidas marcas.</p>
           </div>
           <router-link class="route" to="/nosotros" :style="{ fontWeight: isRouteActive('/nosotros') ? 'bold' : '500' }">
-          <button type="button" class="btn masInformacion2" data-aos="fade-left" data-aos-duration="2000">MÁS INFORMACIÓN</button>
+          <button type="button" class="btn masInformacion2" data-aos="fade-left" data-aos-duration="2000">CONÓCENOS</button>
           </router-link>
       </div>
     </div>
@@ -111,7 +111,7 @@
             <div class="carousel__item" data-aos="fade-up" data-aos-duration="2000" @click="verProducto(producto.id_producto)">
               <div class="producto"> 
                 <img src="../../img/kotexfooter.png" alt="imagen">
-                <p class="categoria">{{ producto.nombre_categoria }}</p>
+                <p class="categoria">{{ producto.nombre_categoria.toUpperCase() }}</p>
                 <p class="nombre">{{ producto.nombre_producto }}</p>
               </div>
             </div>
@@ -221,8 +221,8 @@ export default defineComponent({
   height: 800px;
 }
 .carouselP{
-  padding-left: 16.5%;
-  width: 82%;
+  padding-left: 15.5%;
+  width: 98rem;
 }
 
 .nombre{
@@ -258,19 +258,18 @@ export default defineComponent({
   width: 288px;
   height: 300px;
 }
+.carousel__item{
+    width: 288px;
+    height: 500px;
+}
+
 .producto{
   cursor: pointer;
-  padding: 20px;
-  width: 320px;
+  width: 288px;
   height: 500px;
   background-color: white;
   color: #33447F;
   border-bottom: 1px solid rgba(147, 147, 147, 0.3);
-}
-
-.producto:hover{
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
-
 }
 
 
@@ -330,7 +329,7 @@ export default defineComponent({
   font-weight: 600;
 }
 .text{
-  font-size: 25px;
+  font-size: 18px;
   font-family: "Montserrat", sans-serif;
   font-weight: 300;
 
@@ -338,7 +337,7 @@ export default defineComponent({
 
 .infotext{
   margin-top: 50px;
-  width: 700px;
+  width: 530px;
 }
 
 .titulo{
@@ -393,10 +392,11 @@ export default defineComponent({
 .contenido{
   display: flex;
   flex-direction: column;  
+
 }
 .imagenes div{
-  width: 600px;
-  height: 288px;
+  width: 31.3vw;
+  height: 15vw;
   margin-bottom: 100px;
 }
 .imagenes{
@@ -580,6 +580,38 @@ export default defineComponent({
   font-weight: 300;
   font-size: 20px;
 }
+
+
+@media only screen and (max-width: 1860px) {
+
+
+.textoImg{
+    margin-left: 5vw;
+}
+
+.carousel-indicators {
+ right: 65vw;
+}
+
+.seccion2{
+  margin-left: 5vw;
+}
+}
+
+@media only screen and (max-width: 1600px) {
+
+  .textoImg{
+    margin-left: 2vw;
+}
+.carousel-indicators {
+ right: 70vw;
+}
+.seccion2{
+  margin-left: 2vw;
+}
+
+}
+
 
 
 

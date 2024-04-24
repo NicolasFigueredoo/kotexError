@@ -175,7 +175,7 @@ export default {
 }
 
 .casilla input {
-  width: 610px;
+  width: 600px;
   border: 1px solid #DEDEDE
 }
 
@@ -188,7 +188,7 @@ export default {
 .tabla {
   margin-top: 100px;
   margin-left: 17%;
-  width: 66%;
+  width: 65.2%;
 }
 
 #cantidad {
@@ -243,7 +243,7 @@ export default {
 .file {
   display: flex;
   flex-direction: column;
-  margin-left: 2%;
+  margin-left: 1%;
 }
 
 .file-select {

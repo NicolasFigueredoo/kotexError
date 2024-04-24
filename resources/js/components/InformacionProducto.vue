@@ -2,15 +2,17 @@
     <div>
         <div class="informacionProducto">
             <div class="imgMinis">
-               <div>
-                   <img src="../../img/kotex.jpg" alt=""  ref="imgMiniUno" @click="imagenClick(1, 'kotex.jpg')" />
-               </div>
-               <div>
-                   <img src="../../img/imgNosotros2.png" alt="" ref="imgMiniDos" @click="imagenClick(2, 'imgNosotros2.png')" />
-               </div>
+                <div>
+                    <img src="../../img/kotex.jpg" alt="" ref="imgMiniUno" @click="imagenClick(1, 'kotex.jpg')"
+                        style="cursor: pointer;" />
+                </div>
+                <div>
+                    <img src="../../img/imgNosotros2.png" alt="" ref="imgMiniDos"
+                        @click="imagenClick(2, 'imgNosotros2.png')" style="cursor: pointer;" />
+                </div>
             </div>
             <div class="contenedor-imagen">
-                <img id="imgP" src="../../img/kotex.jpg" ref="imgenPrincipal" alt=""  />
+                <img id="imgP" src="../../img/kotex.jpg" ref="imgenPrincipal" alt="" />
             </div>
             <div class="textos">
                 <div class="categoriaI">
@@ -77,22 +79,22 @@
                                 @change="obtenerProductosNombres">
                                 <option value="" selected>Seleccione</option>
                                 <option v-for="categoria in categorias" :key="categoria.id" :value="categoria.nombre">{{
-                    categoria.nombre }}</option>
+                        categoria.nombre }}</option>
 
                             </select>
                         </td>
                         <td class="rowT">
                             <select v-model="productoSeleccionado" class="form-select selects" id="nombre"
                                 @change="obtenerColorProducto">
-                                <option selected>Seleccione</option>
+                                <option value="" selected>Seleccione</option>
                                 <option v-for="producto in productosC" :key="producto.id" :value="producto.nombre">{{
-                    producto.nombre }}</option>
+                        producto.nombre }}</option>
                             </select>
                         </td>
                         <td class="rowT">
                             <select v-model="colorSeleccionado" class="form-select selects" id="color"
                                 @change="obtenerMedidas">
-                                <option selected>Seleccione</option>
+                                <option value="" selected>Seleccione</option>
                                 <option v-for="productoColor in coloresS" :key="productoColor.id"
                                     :value="productoColor">{{ productoColor }}</option>
 
@@ -101,14 +103,14 @@
                         <td class="rowT">
                             <select v-model="medidaSeleccionada" class="form-select selects" id="medida"
                                 @change="obtenerUnidadVenta">
-                                <option selected>Seleccione</option>
+                                <option value="" selected>Seleccione</option>
                                 <option v-for="medida in medidasS" :key="medida.id" :value="medida">{{ medida }}
                                 </option>
                             </select>
                         </td>
                         <td class="rowT">
                             <select v-model="unidadSeleccionada" class="form-select selects" id="unidadventa">
-                                <option selected>Seleccione</option>
+                                <option value="" selected>Seleccione</option>
                                 <option v-for="unidad in unidadesS" :key="unidad.id" :value="unidad">{{ unidad }}
                                 </option>
 
@@ -213,7 +215,7 @@ export default {
         Carousel,
         Slide,
         Navigation,
-        
+
     },
     data() {
         return {
@@ -452,7 +454,7 @@ export default {
 
 
         },
-    
+
 
 
 
@@ -716,10 +718,10 @@ export default {
 .imgMinis {
     display: flex;
     flex-direction: column;
-    
+
 }
 
-.imgMinis div{
+.imgMinis div {
     width: 80px;
     height: 80px;
     padding-right: 8px;
@@ -727,10 +729,11 @@ export default {
     margin: 10px;
 
 }
+
 .imgMinis div img {
     width: 80px;
     height: 80px;
- 
+
 }
 
 .inputCantidad {
@@ -757,11 +760,9 @@ export default {
 }
 
 .carouselP {
-    padding-left: 16.5%;
-    width: 83%;
+    padding-left: 15.5%;
+    width: 98rem;
 }
-
-
 
 .categoria {
     font-size: 14px;
@@ -774,21 +775,20 @@ export default {
     text-align: left;
 
 }
-
+.carousel__item{
+    width: 288px;
+    height: 500px;
+}
 .producto {
     cursor: pointer;
-    padding: 20px;
-    width: 320px;
+    width: 288px;
     height: 500px;
     background-color: white;
     color: #33447F;
     border-bottom: 1px solid rgba(147, 147, 147, 0.3);
 }
 
-.producto:hover {
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
 
-}
 
 .nombre {
     font-size: 22px;
@@ -805,8 +805,5 @@ export default {
     width: 288px;
     height: 300px;
 }
-
-
-
 
 </style>

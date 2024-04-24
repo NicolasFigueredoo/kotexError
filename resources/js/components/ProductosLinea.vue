@@ -52,9 +52,9 @@ export default {
 .productoslinea {
   display: flex;
   justify-content: left;
-  margin-left: 16.5%;
+  margin-left: 16.2%;
   margin-right: auto;
-  width: 75%;
+  width: 69%;
   margin-bottom: 100px;
 }
 .nombre{
@@ -89,7 +89,7 @@ export default {
 }
 .producto{
   margin-top: 50px;
-  width: 298px;
+  width: 288px;
   height: 410px;
   background-color: white;
   color: #33447F;
