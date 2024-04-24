@@ -267,7 +267,6 @@ export default {
         obtenerInformacionProducto() {
             axios.get(`/api/obtenerInformacionProducto/${this.idProducto}`)
                 .then((response) => {
-                    console.log(response.data, '0')
                     this.medidas = response.data.medidas;
                     this.aplicaciones = response.data.aplicaciones;
                     this.nombreProducto = response.data.nombre_producto;
@@ -303,7 +302,6 @@ export default {
         obtenerProductosEspeciales() {
             axios.get('/api/obtenerProductosEspeciales')
                 .then(response => {
-                    console.log(response.data, '1')
                     this.productosRelacionados = response.data;
                 })
                 .catch(error => {

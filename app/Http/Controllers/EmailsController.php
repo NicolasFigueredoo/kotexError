@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\ContactoMail;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 
@@ -22,20 +23,8 @@ class EmailsController extends Controller
             $mensaje = $request->mensaje;
         
 
-        Mail::to('gtyt@outlook.com.ar')->send(function ($message) use ($nombre, $apellido, $email, $celular, $mensaje) {
-            $message->from($email, $nombre . ' ' . $apellido);
-            $message->subject('Nuevo mensaje de contacto');
-            $message->replyTo($email);
-            $message->markdown('emails.contacto', [
-                'nombre' => $nombre,
-                'apellido' => $apellido,
-                'email' => $email,
-                'celular' => $celular,
-                'mensaje' => $mensaje,
-            ]);
-        });
-
-    
+            $mail = new ContactoMail($nombre, $apellido, $email, $celular, $mensaje);
+            Mail::to('gtytptsp@gmail.com')->send($mail);
 
 
         return response()->json(['message' => 'Correo enviado correctamente']);

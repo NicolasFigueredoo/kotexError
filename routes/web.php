@@ -3,6 +3,7 @@
 use App\Http\Controllers\AplicacionController ;
 use App\Http\Controllers\CategoriaController;
 use App\Http\Controllers\EmailsController;
+use App\Http\Controllers\SuscripcionController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\VariacionesController;
 
@@ -32,4 +33,7 @@ Route::get('/api/obtenerProductosIdAplicacion/{aplicacionId}', [VariacionesContr
 Route::get('/api/obtenerCategorias', [CategoriaController::class, 'index']);
 
 //enviarCorreo
-Route::post('/api/enviarCorreo', [EmailsController::class, 'enviarCorreo']);
+Route::post('/enviarCorreo', [EmailsController::class, 'enviarCorreo']);
+
+//suscripciones
+Route::post('/api/agregarSuscripcion', [SuscripcionController::class, 'agregarSuscripcion']);

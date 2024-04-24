@@ -26,8 +26,8 @@
         <div class="textoEmpresa3">
             <p>Suscribite al Newsletter</p>
             <div class="input-group mb-3">
-            <input style="border-radius:0px;" type="text" class="form-control inputRow" placeholder="Ingresa tu Email" aria-label="Recipient's username" aria-describedby="button-addon2">
-            <button style="border-radius:0px;" class="btn botonRow" type="button" id="button-addon2"><font-awesome-icon class="rowInput" :icon="['fas', 'arrow-right']" /></button>
+            <input v-model="emailSuscripcion" style="border-radius:0px;" type="email" class="form-control inputRow" placeholder="Ingresa tu Email" aria-label="Recipient's username" aria-describedby="button-addon2">
+            <button style="border-radius:0px;" class="btn botonRow" type="button" id="button-addon2"><font-awesome-icon class="rowInput" :icon="['fas', 'arrow-right']" @click="agregarSuscripcion()" /></button>
         </div>
             </div>
         <div class="textoEmpresa4">
@@ -65,7 +65,30 @@
 </template>
 
 <script>
+import axios from "axios";
+
 export default {
+    data(){
+        return{
+            emailSuscripcion: null
+        }
+    },
+    methods:{
+        agregarSuscripcion(){
+            axios.post(`/api/agregarSuscripcion`,{
+                email: this.emailSuscripcion,
+                
+                })
+            
+                .then(response => {
+                    console.log('suscripcion agregada', response.data)
+                })
+                .catch(error => {
+                    console.error('Error al traer los productos:', error);
+                });
+        }
+
+    }
 
 }
 </script>

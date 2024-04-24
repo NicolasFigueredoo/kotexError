@@ -405,9 +405,6 @@ export default defineComponent({
 
 }
 
-
-
-
 .imagen-contenedor {
   overflow: hidden; 
   width: 200px; 
@@ -583,6 +580,9 @@ export default defineComponent({
   font-weight: 300;
   font-size: 20px;
 }
+
+
+
 
 
 </style>
