@@ -2,7 +2,7 @@
 -- Host:                         127.0.0.1
 -- Versión del servidor:         10.4.32-MariaDB - mariadb.org binary distribution
 -- SO del servidor:              Win64
--- HeidiSQL Versión:             12.6.0.6765
+-- HeidiSQL Versión:             12.1.0.6537
 -- --------------------------------------------------------
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -167,13 +167,18 @@ CREATE TABLE IF NOT EXISTS `productos` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Volcando datos para la tabla kotex.productos: ~3 rows (aproximadamente)
+-- Volcando datos para la tabla kotex.productos: ~8 rows (aproximadamente)
 INSERT INTO `productos` (`id`, `nombre`, `created_at`, `updated_at`) VALUES
 	(1, 'Elásticos embutir', NULL, NULL),
 	(3, 'Elásticos Negros', NULL, NULL),
-	(4, 'Cordón sin alma', NULL, NULL);
+	(4, 'Cordón sin alma', NULL, NULL),
+	(5, 'Antideslizante', NULL, NULL),
+	(6, 'Elástico con cordón', NULL, NULL),
+	(7, 'Elástico PARTIDO CON 70-1', NULL, NULL),
+	(8, 'Cintas rígidas', NULL, NULL),
+	(9, 'Fajas Anchas', NULL, NULL);
 
 -- Volcando estructura para tabla kotex.sessions
 CREATE TABLE IF NOT EXISTS `sessions` (
@@ -188,11 +193,9 @@ CREATE TABLE IF NOT EXISTS `sessions` (
   KEY `sessions_last_activity_index` (`last_activity`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Volcando datos para la tabla kotex.sessions: ~3 rows (aproximadamente)
+-- Volcando datos para la tabla kotex.sessions: ~2 rows (aproximadamente)
 INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
-	('EEIYJnspVduanUEZEEEfWWHwgyXG5S4aFPkUhIyY', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiWWIwZVZ1am1VSzlOYm5LRWNoUFVWT0NxZ3Z1MVplZm00NzVMcEYwYyI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6NTI6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9hcGkvb2J0ZW5lclByb2R1Y3Rvc0Rlc3RhY2Fkb3MiO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX19', 1713928313),
-	('jPkTSPlwual5NmZz505MEIaPSBj0Mfs0q2EdZTDP', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiYjZlT3ZYaTFJWHlHUGF1UGxCNG9TcDV1NDVHRlcwcElGU2xzTUt4UyI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MjE6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMCI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fX0=', 1713919988),
-	('O2iISlV07MCVgz99ctV8qhkhC06Ealde3nQjfofg', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36 Edg/124.0.0.0', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiNDhJWHRQRjVZNGllcUpsR1VNSVZsMG8xR1diNkpST2ZMYjVjNm5TbCI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MjE6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMCI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fX0=', 1713920377);
+	('cDTwLvuF8Oe5Ru5uSIDRBdPBvlACKvHdUMh3oxCW', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiUGpmT1RqZGtEWXF6NTh1dEJZd01rbVFlbzI4TzkyRkpzYWVMNmR4OCI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6NTI6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9hcGkvb2J0ZW5lclByb2R1Y3Rvc0Rlc3RhY2Fkb3MiO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX19', 1713991184);
 
 -- Volcando estructura para tabla kotex.suscripciones
 CREATE TABLE IF NOT EXISTS `suscripciones` (
@@ -202,9 +205,10 @@ CREATE TABLE IF NOT EXISTS `suscripciones` (
   `created_at` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Volcando datos para la tabla kotex.suscripciones: ~1 rows (aproximadamente)
+-- Volcando datos para la tabla kotex.suscripciones: ~2 rows (aproximadamente)
 INSERT INTO `suscripciones` (`id`, `email`, `updated_at`, `created_at`) VALUES
-	(NULL, 'nico@outllook.com', '2024-04-24 03:11:53', '2024-04-24 03:11:53');
+	(NULL, 'nico@outllook.com', '2024-04-24 03:11:53', '2024-04-24 03:11:53'),
+	(NULL, 'gtyt@outlook.com', '2024-04-24 03:36:16', '2024-04-24 03:36:16');
 
 -- Volcando estructura para tabla kotex.unidadesventa
 CREATE TABLE IF NOT EXISTS `unidadesventa` (
@@ -221,10 +225,10 @@ INSERT INTO `unidadesventa` (`id`, `unidad`, `created_at`, `updated_at`) VALUES
 	(2, 'Metro', NULL, NULL),
 	(3, 'Carretel', NULL, NULL);
 
--- Volcando estructura para tabla kotex.users
-CREATE TABLE IF NOT EXISTS `users` (
+-- Volcando estructura para tabla kotex.usuarios
+CREATE TABLE IF NOT EXISTS `usuarios` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) NOT NULL,
+  `usuario` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
   `email_verified_at` timestamp NULL DEFAULT NULL,
   `password` varchar(255) NOT NULL,
@@ -233,9 +237,11 @@ CREATE TABLE IF NOT EXISTS `users` (
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `users_email_unique` (`email`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Volcando datos para la tabla kotex.users: ~0 rows (aproximadamente)
+-- Volcando datos para la tabla kotex.usuarios: ~1 rows (aproximadamente)
+INSERT INTO `usuarios` (`id`, `usuario`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
+	(4, 'pablo', 'pablo@hotmail.com', NULL, '$2y$12$2y9fAfPjND/OBHiV8DXxVe.ML3cdIUWJIYblHyvhsZUzNeCEPDo2K', NULL, '2024-04-24 21:42:05', '2024-04-24 21:42:05');
 
 -- Volcando estructura para tabla kotex.variaciones
 CREATE TABLE IF NOT EXISTS `variaciones` (
@@ -251,9 +257,9 @@ CREATE TABLE IF NOT EXISTS `variaciones` (
   PRIMARY KEY (`id`),
   KEY `variaciones_producto_id_foreign` (`producto_id`),
   CONSTRAINT `variaciones_producto_id_foreign` FOREIGN KEY (`producto_id`) REFERENCES `productos` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=37 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Volcando datos para la tabla kotex.variaciones: ~23 rows (aproximadamente)
+-- Volcando datos para la tabla kotex.variaciones: ~31 rows (aproximadamente)
 INSERT INTO `variaciones` (`id`, `producto_id`, `color`, `medida`, `imagen`, `image2`, `imagen3`, `created_at`, `updated_at`) VALUES
 	(4, 1, 'Blanco', '4 mm', '', '', '', NULL, NULL),
 	(6, 1, 'Blanco', '6 mm', '', '', '', NULL, NULL),
@@ -277,7 +283,15 @@ INSERT INTO `variaciones` (`id`, `producto_id`, `color`, `medida`, `imagen`, `im
 	(24, 3, 'Negro', '6 mm', '', '', '', NULL, NULL),
 	(25, 4, 'Crudo', '6 mm', '', '', '', NULL, NULL),
 	(26, 4, 'Negro', '6 mm', '', '', '', NULL, NULL),
-	(27, 4, 'Colores', '6 mm', '', '', '', NULL, NULL);
+	(27, 4, 'Colores', '6 mm', '', '', '', NULL, NULL),
+	(28, 5, 'Negro con goma negra', '25 mm', '', '', '', NULL, NULL),
+	(29, 5, 'Negro con goma blanca', '25 mm', '', '', '', NULL, NULL),
+	(31, 5, 'Blanco con goma blanca', '25 mm', '', '', '', NULL, NULL),
+	(32, 5, 'Negro con goma negra', '30 mm', '', '', '', NULL, NULL),
+	(33, 6, 'Blanco', '30 mm', '', '', '', NULL, NULL),
+	(34, 7, 'Crudo (blanco sublimable)', '22 mm', '', '', '', NULL, NULL),
+	(35, 8, 'Varios', '', '', '', '', NULL, NULL),
+	(36, 9, 'Negro', '100 mm', '', '', '', NULL, NULL);
 
 -- Volcando estructura para tabla kotex.variacion_aplicacion
 CREATE TABLE IF NOT EXISTS `variacion_aplicacion` (
@@ -291,9 +305,9 @@ CREATE TABLE IF NOT EXISTS `variacion_aplicacion` (
   KEY `variacion_aplicacion_aplicacion_id_foreign` (`aplicacion_id`),
   CONSTRAINT `variacion_aplicacion_aplicacion_id_foreign` FOREIGN KEY (`aplicacion_id`) REFERENCES `aplicaciones` (`id`),
   CONSTRAINT `variacion_aplicacion_variacion_id_foreign` FOREIGN KEY (`variacion_id`) REFERENCES `variaciones` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=78 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=104 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Volcando datos para la tabla kotex.variacion_aplicacion: ~73 rows (aproximadamente)
+-- Volcando datos para la tabla kotex.variacion_aplicacion: ~93 rows (aproximadamente)
 INSERT INTO `variacion_aplicacion` (`id`, `variacion_id`, `aplicacion_id`, `created_at`, `updated_at`) VALUES
 	(4, 4, 3, NULL, NULL),
 	(5, 4, 4, NULL, NULL),
@@ -367,7 +381,27 @@ INSERT INTO `variacion_aplicacion` (`id`, `variacion_id`, `aplicacion_id`, `crea
 	(74, 26, 6, NULL, NULL),
 	(75, 27, 3, NULL, NULL),
 	(76, 27, 6, NULL, NULL),
-	(77, 27, 13, NULL, NULL);
+	(77, 27, 13, NULL, NULL),
+	(79, 28, 12, NULL, NULL),
+	(80, 28, 13, NULL, NULL),
+	(81, 28, 16, NULL, NULL),
+	(82, 29, 12, NULL, NULL),
+	(83, 29, 13, NULL, NULL),
+	(86, 29, 16, NULL, NULL),
+	(87, 31, 12, NULL, NULL),
+	(89, 31, 13, NULL, NULL),
+	(90, 31, 16, NULL, NULL),
+	(92, 32, 12, NULL, NULL),
+	(93, 32, 13, NULL, NULL),
+	(95, 32, 16, NULL, NULL),
+	(96, 33, 3, NULL, NULL),
+	(97, 33, 12, NULL, NULL),
+	(98, 33, 6, NULL, NULL),
+	(99, 34, 13, NULL, NULL),
+	(100, 34, 3, NULL, NULL),
+	(101, 35, 3, NULL, NULL),
+	(102, 36, 20, NULL, NULL),
+	(103, 36, 20, NULL, NULL);
 
 -- Volcando estructura para tabla kotex.variacion_categoria
 CREATE TABLE IF NOT EXISTS `variacion_categoria` (
@@ -381,9 +415,9 @@ CREATE TABLE IF NOT EXISTS `variacion_categoria` (
   KEY `variacion_categoria_categoria_id_foreign` (`categoria_id`),
   CONSTRAINT `variacion_categoria_categoria_id_foreign` FOREIGN KEY (`categoria_id`) REFERENCES `categorias` (`id`),
   CONSTRAINT `variacion_categoria_variacion_id_foreign` FOREIGN KEY (`variacion_id`) REFERENCES `variaciones` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=44 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Volcando datos para la tabla kotex.variacion_categoria: ~28 rows (aproximadamente)
+-- Volcando datos para la tabla kotex.variacion_categoria: ~38 rows (aproximadamente)
 INSERT INTO `variacion_categoria` (`id`, `variacion_id`, `categoria_id`, `created_at`, `updated_at`) VALUES
 	(1, 4, 1, NULL, NULL),
 	(2, 6, 1, NULL, NULL),
@@ -412,7 +446,17 @@ INSERT INTO `variacion_categoria` (`id`, `variacion_id`, `categoria_id`, `create
 	(26, 26, 3, NULL, NULL),
 	(27, 25, 3, NULL, NULL),
 	(28, 24, 3, NULL, NULL),
-	(29, 27, 3, NULL, NULL);
+	(29, 27, 3, NULL, NULL),
+	(30, 28, 1, NULL, NULL),
+	(32, 29, 1, NULL, NULL),
+	(35, 31, 1, NULL, NULL),
+	(36, 32, 1, NULL, NULL),
+	(37, 32, 3, NULL, NULL),
+	(38, 33, 1, NULL, NULL),
+	(39, 33, 3, NULL, NULL),
+	(40, 34, 2, NULL, NULL),
+	(42, 35, 2, NULL, NULL),
+	(43, 36, 2, NULL, NULL);
 
 -- Volcando estructura para tabla kotex.variacion_unidad_venta
 CREATE TABLE IF NOT EXISTS `variacion_unidad_venta` (
@@ -426,9 +470,9 @@ CREATE TABLE IF NOT EXISTS `variacion_unidad_venta` (
   KEY `variacion_unidad_venta_unidad_id_foreign` (`unidad_id`),
   CONSTRAINT `variacion_unidad_venta_unidad_id_foreign` FOREIGN KEY (`unidad_id`) REFERENCES `unidadesventa` (`id`),
   CONSTRAINT `variacion_unidad_venta_variacion_id_foreign` FOREIGN KEY (`variacion_id`) REFERENCES `variaciones` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=47 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=64 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Volcando datos para la tabla kotex.variacion_unidad_venta: ~46 rows (aproximadamente)
+-- Volcando datos para la tabla kotex.variacion_unidad_venta: ~62 rows (aproximadamente)
 INSERT INTO `variacion_unidad_venta` (`id`, `variacion_id`, `unidad_id`, `created_at`, `updated_at`) VALUES
 	(1, 4, 1, NULL, NULL),
 	(2, 4, 2, NULL, NULL),
@@ -475,7 +519,23 @@ INSERT INTO `variacion_unidad_venta` (`id`, `variacion_id`, `unidad_id`, `create
 	(43, 26, 2, NULL, NULL),
 	(44, 26, 1, NULL, NULL),
 	(45, 27, 2, NULL, NULL),
-	(46, 27, 1, NULL, NULL);
+	(46, 27, 1, NULL, NULL),
+	(47, 28, 2, NULL, NULL),
+	(48, 28, 1, NULL, NULL),
+	(49, 29, 2, NULL, NULL),
+	(50, 29, 1, NULL, NULL),
+	(51, 31, 2, NULL, NULL),
+	(52, 31, 1, NULL, NULL),
+	(53, 32, 1, NULL, NULL),
+	(54, 32, 2, NULL, NULL),
+	(55, 33, 1, NULL, NULL),
+	(56, 33, 2, NULL, NULL),
+	(58, 34, 1, NULL, NULL),
+	(59, 34, 2, NULL, NULL),
+	(60, 35, 1, NULL, NULL),
+	(61, 35, 2, NULL, NULL),
+	(62, 36, 1, NULL, NULL),
+	(63, 36, 2, NULL, NULL);
 
 /*!40103 SET TIME_ZONE=IFNULL(@OLD_TIME_ZONE, 'system') */;
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
