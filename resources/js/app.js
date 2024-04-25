@@ -3,9 +3,7 @@ import App from './app.vue';
 import router from './router/index.js';
 import store from './store/store.js';
 
-//sidebar
-import VueSidebarMenu from 'vue-sidebar-menu'
-import 'vue-sidebar-menu/dist/vue-sidebar-menu.css'
+
 
 
 //bootstrap
@@ -29,6 +27,5 @@ const app = createApp(App);
 app.component('font-awesome-icon', FontAwesomeIcon)
 app.use(router);
 app.use(store);
-app.use(VueSidebarMenu)
 app.mount('#app'); 
 

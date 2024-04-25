@@ -1,7 +1,9 @@
 <template>
   <div>
     <div class="textoImg" data-aos="fade-right" data-aos-duration="2000">>
-      <p>Fabricamos cintas elásticas para la industria en general</p>
+      <div v-if="this.sliders && this.sliders.length > 0" v-for="slider in sliders" :key="slider.id">
+        <div v-if="slider.orden === 'aa'" v-html="this.sliders[0].texto"></div>
+      </div>
       <router-link class="route" to="/nosotros" :style="{ fontWeight: isRouteActive('/nosotros') ? 'bold' : '500' }">
       <button type="button"  class="btn masInformacion" >MÁS INFORMACIÓN</button>
       </router-link>
@@ -13,16 +15,10 @@
         <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
         <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
       </div>
-      <div class="carousel-inner">
-        
-        <div class="carousel-item active">
-          <img src="../../img/home.png" class="d-block w-100" alt="..." >
-        </div>
-        <div class="carousel-item">
-          <img src="../../img/home.png" class="d-block w-100" alt="...">
-        </div>
-        <div class="carousel-item">
-          <img src="../../img/home.png" class="d-block w-100" alt="...">
+      <div class="carousel-inner" >
+        <div v-for="slider in sliders" :key="slider.id" :class="['carousel-item', { 'active': slider.orden === 'aa'}]" style="height: 100%;" >
+          <div class="degradado"></div>
+          <img :src="getImagen(slider.imagen)"  class="d-block w-100" alt="..." style=" width: 100%;height: 100%; object-fit: cover;" >
         </div>
       </div>
       <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
@@ -35,8 +31,6 @@
       </button>
     </div>
 
-
-  
     <div class="seccion2">
       <div class="contenido">
         <p class="titleSeccion">Productos</p>
@@ -134,9 +128,7 @@ import 'aos/dist/aos.css';
 import { Carousel, Navigation, Slide, Pagination  } from 'vue3-carousel';
 import 'vue3-carousel/dist/carousel.css';
 import axios from 'axios';
-import { defineComponent, ref, onMounted } from 'vue';
-import { useStore } from 'vuex';
-import { useRouter } from 'vue-router';
+import { defineComponent } from 'vue';
 
 
 export default defineComponent({
@@ -151,6 +143,8 @@ export default defineComponent({
   data() {
     return {
       productos: [],
+      sliders: [],
+      imagenURLs: {},
       settings: {
         itemsToShow: 1,
         snapAlign: 'center',
@@ -169,43 +163,43 @@ export default defineComponent({
     
   },
 
-  setup() {
-    const productos = ref([]);
-    const store = useStore();
-    const router = useRouter();
-
-    const verProducto = (productId) => {
-      store.commit('setSelectedProductId', productId);
-      router.push('/productosdelinea');
-
-    };
-
-    const isRouteActive = (route) => {
-      return router.currentRoute.value.path === route;
-    };
-
-    const obtenerProductosDestacados = () => {
+  methods: {
+    verProducto(productId) {
+      this.$store.commit('setSelectedProductId', productId);
+      this.$router.push('/productosdelinea');
+    },
+    isRouteActive(route) {
+      return this.$route.path === route;
+    },
+    obtenerProductosDestacados() {
       axios.get('/api/obtenerProductosDestacados')
         .then(response => {
-          productos.value = response.data;
-          
+          this.productos = response.data;
         })
         .catch(error => {
           console.error('Error al traer los productos:', error);
         });
-    };
-    
+    },
+    obtenerSlidersHome(){
+        axios.get('/api/obtenerSliders')
+                .then(response => {
+                  this.sliders = response.data;
+                })
+                .catch(error => {
+                    console.error(error);
+                });
+    },
+    getImagen(fileName){
+      const filePath = fileName.split('/').pop();
+      return '/api/getImage/' + filePath
 
-    onMounted(() => {
-      AOS.init();
-      obtenerProductosDestacados();
-    });
 
-    return {
-      productos,
-      verProducto,
-      isRouteActive
-    };
+    }
+  },
+  mounted() {
+    AOS.init();
+    this.obtenerSlidersHome(); 
+    this.obtenerProductosDestacados();
   }
 
   
@@ -516,13 +510,13 @@ export default defineComponent({
 .textoImg{
     margin-top: 150px;
     margin-left: 17%;
-    width: 530px;
+    width: 460px;
     height: 50px;
     position: absolute;
     z-index: 1; 
 
 }
-.textoImg p{
+.textoImg div{
     color: white;
     font-weight: 400;
     font-family: "Montserrat", sans-serif;
@@ -579,6 +573,15 @@ export default defineComponent({
   font-family: "Montserrat", sans-serif;
   font-weight: 300;
   font-size: 20px;
+}
+
+.degradado{
+  position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%; 
+    height: 100%;
+    background: linear-gradient(to left, rgba(0,0,0,0), rgba(0,0,0,100)); 
 }
 
 

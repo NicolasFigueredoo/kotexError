@@ -56,56 +56,83 @@
         </nav>
 
 
-        <nav id="sidebar" class="sidebar bg-body-light shadow-right">
-            <a class="sidebar-brand">
-                <img src="../../../../img/kotex.jpg" class="w-75">
-            </a>
-            <ul class="sidebar-nav nav accordion">
-                <li class="sidebar-header text-uppercase">
-                    Administrador Kotex
-                </li>
-                <hr class="mx-3">
-                <li class="sidebar-item">
-                    <a href="" class="nav-link collapsed" data-bs-toggle="collapse" data-bs-target="#collapseCategories"
-                        aria-expanded="false" aria-controls="colappseCategories">
-                        <div class="nav-link-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                                class="bi bi-house-door-fill" viewBox="0 0 16 16">
-                                <path
-                                    d="M6.5 14.5v-3.505c0-.245.25-.495.5-.495h2c.25 0 .5.25.5.5v3.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5Z" />
-                            </svg>
+        <div>
+            <nav id="sidebar" class="sidebar bg-body-light shadow-right">
+                <a class="sidebar-brand">
+                    <img src="../../../../img/kotex.jpg" class="w-75">
+                </a>
+                <ul class="sidebar-nav nav accordion">
+                    <li class="sidebar-header text-uppercase">
+                        Administrador Kotex
+                    </li>
+                    <hr class="mx-3">
+                    <li class="sidebar-item">
+                        <a  class="nav-link collapsed" data-bs-toggle="collapse" data-bs-target="#collapseCategories"
+                            aria-expanded="false" aria-controls="colappseCategories">
+                            <div class="nav-link-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                    class="bi bi-house-door-fill" viewBox="0 0 16 16">
+                                    <path
+                                        d="M6.5 14.5v-3.505c0-.245.25-.495.5-.495h2c.25 0 .5.25.5.5v3.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5Z" />
+                                </svg>
+                            </div>
+                            <span>Home</span>
+                            <div class="sidenav-collapse-arrow">
+                                <i class="fa-solid fa-angle-down"></i>
+                            </div>
+                        </a>
+                        <div id="collapseCategories" class="collapse">
+                            <nav  class="sidenav-menu-nested nav accordion">
+                                <a @click="mostrarComponenteF(1)" class="nav-link ">Slider</a>
+                            </nav>
                         </div>
-                        <span>Home</span>
-                        <div class="sidenav-collapse-arrow">
-                            <i class="fa-solid fa-angle-down"></i>
+                        <div id="collapseCategories" class="collapse">
+                            <nav class="sidenav-menu-nested nav accordion">
+                                <a @click="mostrarComponenteF(3)" class="nav-link ">Categorias</a>
+                            </nav>
                         </div>
-                    </a>
-                    <div id="collapseCategories" class="collapse">
-                        <nav class="sidenav-menu-nested nav accordion">
-                            <a class="nav-link ">Slider</a>
-                        </nav>
-                    </div>
-                    <div id="collapseCategories" class="collapse">
-                        <nav class="sidenav-menu-nested nav accordion">
-                            <a class="nav-link ">Contenido</a>
-                        </nav>
-                    </div>
-                </li>
+                    </li>
+    
+    
+                </ul>
+            </nav>
+
+            <ShowSlider v-if="mostrarComponente === 1"/>
+            <EditSlider v-if="mostrarComponente === 2"/>
+            <ShowCategorias v-if="mostrarComponente === 3"/>
+            <EditCategoria v-if="mostrarComponente === 4"/>
+
+        </div>
 
 
-            </ul>
-        </nav>
     </div>
 </template>
 
 <script>
-import Login from "@/components/admin/Login.vue";
+import ShowSlider from "@/components/admin/home/sliderHome/ShowSlider.vue";
+import EditSlider from "@/components/admin/home/sliderHome/EditSlider.vue";
+import ShowCategorias from "@/components/admin/home/categorias/ShowCategorias.vue";
+import EditCategoria from "@/components/admin/home/categorias/EditCategoria.vue";
 
 
 export default {
     components: {
-        Login
+        ShowSlider,
+        EditSlider,
+        ShowCategorias,
+        EditCategoria
     },
+    computed:{
+        mostrarComponente(){
+            return this.$store.getters['getMostrarComponente'];
+        }
+
+    },
+    methods:{
+        mostrarComponenteF(idComponente){
+            this.$store.commit('mostrarComponente', idComponente);
+        }
+    }
 
 
 

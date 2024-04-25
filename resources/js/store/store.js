@@ -5,9 +5,22 @@ export default createStore({
     selectedProductId: null,
     selectedAplicacionId: null,
     registros: JSON.parse(localStorage.getItem('registros')) || [],
+    mostrarComponente: 0,
+    idSliderHome: null,
+    idCategoriaHome: null
 
   },
   mutations: {
+
+    setCategoriaIdComponent(state,idCategoriaHome){
+      state.idCategoriaHome = idCategoriaHome
+    },
+    setSliderIdComponent(state,idSliderHome){
+      state.idSliderHome = idSliderHome
+    },
+    mostrarComponente(state,idComponente){
+      state.mostrarComponente = idComponente
+    },
  
     agregarRegistro(state, nuevoRegistro ) {
       state.registros.push(nuevoRegistro);
@@ -31,6 +44,15 @@ export default createStore({
     // Aquí defines las acciones para realizar operaciones asíncronas
   },
   getters: {
+    getidCategoriaHome(state) {
+      return state.idCategoriaHome;
+    },
+    getidSliderHome(state) {
+      return state.idSliderHome;
+    },
+    getMostrarComponente(state) {
+      return state.mostrarComponente;
+    },
     getSelectedProductId(state) {
       return state.selectedProductId;
     },
