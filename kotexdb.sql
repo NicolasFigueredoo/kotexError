@@ -1,8 +1,8 @@
 -- --------------------------------------------------------
 -- Host:                         127.0.0.1
--- Versión del servidor:         10.4.32-MariaDB - mariadb.org binary distribution
+-- Versión del servidor:         10.4.28-MariaDB - mariadb.org binary distribution
 -- SO del servidor:              Win64
--- HeidiSQL Versión:             12.1.0.6537
+-- HeidiSQL Versión:             12.6.0.6765
 -- --------------------------------------------------------
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -78,6 +78,20 @@ INSERT INTO `categorias` (`id`, `nombre`, `created_at`, `updated_at`) VALUES
 	(1, 'Productos de linea', NULL, NULL),
 	(2, 'Productos Especiales', NULL, NULL),
 	(3, 'Productos destacados', NULL, NULL);
+
+-- Volcando estructura para tabla kotex.categoriashome
+CREATE TABLE IF NOT EXISTS `categoriashome` (
+  `id` int(11) DEFAULT NULL,
+  `orden` varchar(50) DEFAULT NULL,
+  `texto` longtext DEFAULT NULL,
+  `imagen` longtext DEFAULT NULL,
+  `updated_at` varchar(50) DEFAULT NULL,
+  `created_at` varchar(50) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- Volcando datos para la tabla kotex.categoriashome: ~1 rows (aproximadamente)
+INSERT INTO `categoriashome` (`id`, `orden`, `texto`, `imagen`, `updated_at`, `created_at`) VALUES
+	(1, 'aa', 'productos', NULL, NULL, NULL);
 
 -- Volcando estructura para tabla kotex.failed_jobs
 CREATE TABLE IF NOT EXISTS `failed_jobs` (
@@ -193,9 +207,34 @@ CREATE TABLE IF NOT EXISTS `sessions` (
   KEY `sessions_last_activity_index` (`last_activity`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Volcando datos para la tabla kotex.sessions: ~2 rows (aproximadamente)
+-- Volcando datos para la tabla kotex.sessions: ~9 rows (aproximadamente)
 INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
-	('cDTwLvuF8Oe5Ru5uSIDRBdPBvlACKvHdUMh3oxCW', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiUGpmT1RqZGtEWXF6NTh1dEJZd01rbVFlbzI4TzkyRkpzYWVMNmR4OCI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6NTI6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9hcGkvb2J0ZW5lclByb2R1Y3Rvc0Rlc3RhY2Fkb3MiO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX19', 1713991184);
+	('5f8WsAykMNfiEC4oV1EM1y5MAdpTFgUAyq7bhrVl', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiWUlVM2RMTlY0UWxXcDZ4bTFMaUtoTFQ5eTliVEtRb0l4cUxlTXNEMCI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6Nzk6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9hcGkvZ2V0SW1hZ2Uva2V3RFdiZzJ3M2xMTE40UGhtbk82bEhqeTBRaWFDUmVjRmNxRXRmRy5wbmciO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX19', 1714071648),
+	('cScmfuhu7vZuhgcrtupkapU1IdhecyMUKU0tA1dt', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiODEwZG9xY2ZSTWZRVlhZMEJNQkczcjRFbWt0T3ViaWJwVXpVazZRbiI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6Nzk6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9hcGkvZ2V0SW1hZ2UvRnFGc2g4Z0hMektTemVCWDdhUVZMemtBZDNFcEdRdG1HRWVjRk9jdy5wbmciO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX19', 1714069440),
+	('GrVVhYaJfa7Kk4l6eo53oYRqfLA79cBrw8JBMxHZ', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoidFBldlJmT3NkTzRabHJCdVFSam9OQVhSOHc1dGJZa1hyempDRkNneSI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6Nzk6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9hcGkvZ2V0SW1hZ2UvRnFGc2g4Z0hMektTemVCWDdhUVZMemtBZDNFcEdRdG1HRWVjRk9jdy5wbmciO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX19', 1714071716),
+	('IKOMhr7m0Q9o5oNbJ8GijiIlDAz28CnKxacATEy8', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiUnBkamViMmRwc3VDYTdYMzBOSE9kbUJpZ2syZVpjS2VoaUpCanN6MCI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6Nzk6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9hcGkvZ2V0SW1hZ2UvRnFGc2g4Z0hMektTemVCWDdhUVZMemtBZDNFcEdRdG1HRWVjRk9jdy5wbmciO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX19', 1714068533),
+	('K89T1CynDrytHuLZRQp1pjVRLDGIB8Uxkrp1GkuI', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiVk9memdNZ0s0aTBaMGxZeDFCbkJtMUVFd3cyQllBMmRGc0hCc1dNYiI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6NDg6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9hcGkvb2J0ZW5lckNhdGVnb3JpYUhvbWUvMSI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fX0=', 1714074590),
+	('tG7C2t7aGSt0PknaRkIuo0QoIEbUVjixztaEmWKp', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiQkdFVjdoRVo3Q2pvcjltYXJKMExqQjNyTldaVkMyb2ZYQWI5MDZJRiI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6Nzk6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9hcGkvZ2V0SW1hZ2UvRnFGc2g4Z0hMektTemVCWDdhUVZMemtBZDNFcEdRdG1HRWVjRk9jdy5wbmciO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX19', 1714071581),
+	('TMQHAmYziLsqIwooVvfRlzO1hiZ9GwHwrZSOwSHW', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiTEF3WU5OdnJ6UVdTMVBGZ3liQVp4SWtOWDlQSTF4Q0tMUk91TjNHeCI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6Nzk6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9hcGkvZ2V0SW1hZ2UvRnFGc2g4Z0hMektTemVCWDdhUVZMemtBZDNFcEdRdG1HRWVjRk9jdy5wbmciO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX19', 1714071728),
+	('tuhQG2YBzjSeoLDrPrDeXeyZS9nSpBF6Svx4ZEZx', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiOUpEQWliS05aTkI0Y2pBeUlNdGZZUVdHNlp6aXBMTzdQTEZKZ052SCI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6Nzk6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9hcGkvZ2V0SW1hZ2UvRnFGc2g4Z0hMektTemVCWDdhUVZMemtBZDNFcEdRdG1HRWVjRk9jdy5wbmciO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX19', 1714071458),
+	('vvtyWD8dG5pfNKJCYOPdapsLyCzqlaRAojgpWrSK', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiRjl6Z00xNm5xd2s1R2dSelNsZWc5ejB1NUNKcnduUHlEd0Zza0JSZiI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6Nzk6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9hcGkvZ2V0SW1hZ2UvRnFGc2g4Z0hMektTemVCWDdhUVZMemtBZDNFcEdRdG1HRWVjRk9jdy5wbmciO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX19', 1714070786);
+
+-- Volcando estructura para tabla kotex.slidershome
+CREATE TABLE IF NOT EXISTS `slidershome` (
+  `id` int(11) NOT NULL DEFAULT 1,
+  `orden` varchar(50) NOT NULL,
+  `texto` longtext DEFAULT NULL,
+  `imagen` varchar(400) DEFAULT NULL,
+  `updated_at` varchar(50) DEFAULT NULL,
+  `created_at` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- Volcando datos para la tabla kotex.slidershome: ~3 rows (aproximadamente)
+INSERT INTO `slidershome` (`id`, `orden`, `texto`, `imagen`, `updated_at`, `created_at`) VALUES
+	(1, 'aa', '<h1><font color="#ffffff">Fabricamos cintas </font></h1><h1><font color="#ffffff">elásticas para la industria en general</font></h1><h1><font color="#ffffff"><span style="font-family: Arial;"></span></font></h1><h1><font color="#ffffff"><span style="font-family: Arial;"></span></font></h1>', 'fotos/FqFsh8gHLzKSzeBX7aQVLzkAd3EpGQtmGEecFOcw.png', '2024-04-25 17:47:55', NULL),
+	(2, 'ab', 'pepito', 'fotos/kewDWbg2w3lLLN4PhmnO6lHjy0QiaCRecFcqEtfG.png', '2024-04-25 18:49:10', NULL),
+	(3, 'ac', NULL, NULL, NULL, NULL);
 
 -- Volcando estructura para tabla kotex.suscripciones
 CREATE TABLE IF NOT EXISTS `suscripciones` (
