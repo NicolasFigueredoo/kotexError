@@ -57,14 +57,14 @@ export default {
             this.foto = file.files[0]
         },
         updateSlider() {
-            let formData = new FormData(); 
-            formData.append('idSlider', this.idSlider);
-            formData.append('foto', this.foto);
-            formData.append('jsonCodigoSlider', $('#editor').summernote('code').toString());
-            formData.append('orden', $('#orden').val());
-
-
-            axios.post('/api/updateSlider', formData, {
+            axios.post('/api/updateSlider', 
+            {
+                idSlider: this.idSlider,
+                foto: this.foto,
+                jsonCodigoSlider: $('#editor').summernote('code').toString(),
+                orden: $('#orden').val()
+            }
+            , {
                 headers: {
                     'Content-Type': 'multipart/form-data'
                 }

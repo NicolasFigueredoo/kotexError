@@ -99,8 +99,7 @@
 
             <ShowSlider v-if="mostrarComponente === 1"/>
             <EditSlider v-if="mostrarComponente === 2"/>
-            <ShowCategorias v-if="mostrarComponente === 3"/>
-            <EditCategoria v-if="mostrarComponente === 4"/>
+            
 
         </div>
 
@@ -111,16 +110,14 @@
 <script>
 import ShowSlider from "@/components/admin/home/sliderHome/ShowSlider.vue";
 import EditSlider from "@/components/admin/home/sliderHome/EditSlider.vue";
-import ShowCategorias from "@/components/admin/home/categorias/ShowCategorias.vue";
-import EditCategoria from "@/components/admin/home/categorias/EditCategoria.vue";
+
 
 
 export default {
     components: {
         ShowSlider,
         EditSlider,
-        ShowCategorias,
-        EditCategoria
+ 
     },
     computed:{
         mostrarComponente(){
