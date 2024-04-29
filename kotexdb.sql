@@ -93,6 +93,23 @@ CREATE TABLE IF NOT EXISTS `categoriashome` (
 INSERT INTO `categoriashome` (`id`, `orden`, `texto`, `imagen`, `updated_at`, `created_at`) VALUES
 	(1, 'aa', 'productos', NULL, NULL, NULL);
 
+-- Volcando estructura para tabla kotex.contacto
+CREATE TABLE IF NOT EXISTS `contacto` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `direccion` varchar(50) DEFAULT NULL,
+  `email` varchar(50) DEFAULT NULL,
+  `facebook` varchar(50) DEFAULT NULL,
+  `telefono` varchar(50) DEFAULT NULL,
+  `instagram` varchar(50) DEFAULT NULL,
+  `whatsapp` varchar(50) DEFAULT NULL,
+  `updated_at` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- Volcando datos para la tabla kotex.contacto: ~1 rows (aproximadamente)
+INSERT INTO `contacto` (`id`, `direccion`, `email`, `facebook`, `telefono`, `instagram`, `whatsapp`, `updated_at`) VALUES
+	(1, 'pepito', 'sadf', 'asdf', 'sadf', 'afsd', 'asdf', '2024-04-29 18:30:13');
+
 -- Volcando estructura para tabla kotex.failed_jobs
 CREATE TABLE IF NOT EXISTS `failed_jobs` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
@@ -139,6 +156,21 @@ CREATE TABLE IF NOT EXISTS `job_batches` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Volcando datos para la tabla kotex.job_batches: ~0 rows (aproximadamente)
+
+-- Volcando estructura para tabla kotex.logos
+CREATE TABLE IF NOT EXISTS `logos` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `logo` varchar(50) NOT NULL DEFAULT '0',
+  `imagen` varchar(50) NOT NULL DEFAULT '0',
+  `updated_at` varchar(50) DEFAULT NULL,
+  `Columna 5` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- Volcando datos para la tabla kotex.logos: ~1 rows (aproximadamente)
+INSERT INTO `logos` (`id`, `logo`, `imagen`, `updated_at`, `Columna 5`) VALUES
+	(4, 'Logo nav', '0', NULL, NULL),
+	(5, 'Logo Foot', '0', NULL, NULL);
 
 -- Volcando estructura para tabla kotex.migrations
 CREATE TABLE IF NOT EXISTS `migrations` (
@@ -207,17 +239,9 @@ CREATE TABLE IF NOT EXISTS `sessions` (
   KEY `sessions_last_activity_index` (`last_activity`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Volcando datos para la tabla kotex.sessions: ~9 rows (aproximadamente)
+-- Volcando datos para la tabla kotex.sessions: ~1 rows (aproximadamente)
 INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
-	('5f8WsAykMNfiEC4oV1EM1y5MAdpTFgUAyq7bhrVl', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiWUlVM2RMTlY0UWxXcDZ4bTFMaUtoTFQ5eTliVEtRb0l4cUxlTXNEMCI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6Nzk6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9hcGkvZ2V0SW1hZ2Uva2V3RFdiZzJ3M2xMTE40UGhtbk82bEhqeTBRaWFDUmVjRmNxRXRmRy5wbmciO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX19', 1714071648),
-	('cScmfuhu7vZuhgcrtupkapU1IdhecyMUKU0tA1dt', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiODEwZG9xY2ZSTWZRVlhZMEJNQkczcjRFbWt0T3ViaWJwVXpVazZRbiI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6Nzk6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9hcGkvZ2V0SW1hZ2UvRnFGc2g4Z0hMektTemVCWDdhUVZMemtBZDNFcEdRdG1HRWVjRk9jdy5wbmciO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX19', 1714069440),
-	('GrVVhYaJfa7Kk4l6eo53oYRqfLA79cBrw8JBMxHZ', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoidFBldlJmT3NkTzRabHJCdVFSam9OQVhSOHc1dGJZa1hyempDRkNneSI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6Nzk6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9hcGkvZ2V0SW1hZ2UvRnFGc2g4Z0hMektTemVCWDdhUVZMemtBZDNFcEdRdG1HRWVjRk9jdy5wbmciO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX19', 1714071716),
-	('IKOMhr7m0Q9o5oNbJ8GijiIlDAz28CnKxacATEy8', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiUnBkamViMmRwc3VDYTdYMzBOSE9kbUJpZ2syZVpjS2VoaUpCanN6MCI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6Nzk6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9hcGkvZ2V0SW1hZ2UvRnFGc2g4Z0hMektTemVCWDdhUVZMemtBZDNFcEdRdG1HRWVjRk9jdy5wbmciO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX19', 1714068533),
-	('K89T1CynDrytHuLZRQp1pjVRLDGIB8Uxkrp1GkuI', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiVk9memdNZ0s0aTBaMGxZeDFCbkJtMUVFd3cyQllBMmRGc0hCc1dNYiI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6NDg6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9hcGkvb2J0ZW5lckNhdGVnb3JpYUhvbWUvMSI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fX0=', 1714074590),
-	('tG7C2t7aGSt0PknaRkIuo0QoIEbUVjixztaEmWKp', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiQkdFVjdoRVo3Q2pvcjltYXJKMExqQjNyTldaVkMyb2ZYQWI5MDZJRiI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6Nzk6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9hcGkvZ2V0SW1hZ2UvRnFGc2g4Z0hMektTemVCWDdhUVZMemtBZDNFcEdRdG1HRWVjRk9jdy5wbmciO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX19', 1714071581),
-	('TMQHAmYziLsqIwooVvfRlzO1hiZ9GwHwrZSOwSHW', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiTEF3WU5OdnJ6UVdTMVBGZ3liQVp4SWtOWDlQSTF4Q0tMUk91TjNHeCI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6Nzk6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9hcGkvZ2V0SW1hZ2UvRnFGc2g4Z0hMektTemVCWDdhUVZMemtBZDNFcEdRdG1HRWVjRk9jdy5wbmciO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX19', 1714071728),
-	('tuhQG2YBzjSeoLDrPrDeXeyZS9nSpBF6Svx4ZEZx', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiOUpEQWliS05aTkI0Y2pBeUlNdGZZUVdHNlp6aXBMTzdQTEZKZ052SCI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6Nzk6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9hcGkvZ2V0SW1hZ2UvRnFGc2g4Z0hMektTemVCWDdhUVZMemtBZDNFcEdRdG1HRWVjRk9jdy5wbmciO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX19', 1714071458),
-	('vvtyWD8dG5pfNKJCYOPdapsLyCzqlaRAojgpWrSK', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiRjl6Z00xNm5xd2s1R2dSelNsZWc5ejB1NUNKcnduUHlEd0Zza0JSZiI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6Nzk6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9hcGkvZ2V0SW1hZ2UvRnFGc2g4Z0hMektTemVCWDdhUVZMemtBZDNFcEdRdG1HRWVjRk9jdy5wbmciO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX19', 1714070786);
+	('a7xS8pvQsab7JOxUHWSixBw5D2AmHlFvvjk1r01B', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiMTdocFVtbkZEZDVlNXFBeDZET2tvMUJxb2lTREtPQkFUU0N3THFrTyI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6NDE6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9hcGkvb2J0ZW5lckNvbnRhY3RvIjt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319fQ==', 1714419480);
 
 -- Volcando estructura para tabla kotex.slidershome
 CREATE TABLE IF NOT EXISTS `slidershome` (
@@ -244,10 +268,11 @@ CREATE TABLE IF NOT EXISTS `suscripciones` (
   `created_at` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Volcando datos para la tabla kotex.suscripciones: ~2 rows (aproximadamente)
+-- Volcando datos para la tabla kotex.suscripciones: ~3 rows (aproximadamente)
 INSERT INTO `suscripciones` (`id`, `email`, `updated_at`, `created_at`) VALUES
 	(NULL, 'nico@outllook.com', '2024-04-24 03:11:53', '2024-04-24 03:11:53'),
-	(NULL, 'gtyt@outlook.com', '2024-04-24 03:36:16', '2024-04-24 03:36:16');
+	(NULL, 'gtyt@outlook.com', '2024-04-24 03:36:16', '2024-04-24 03:36:16'),
+	(NULL, 'pepito@hotmail.com', '2024-04-29 12:46:51', '2024-04-29 12:46:51');
 
 -- Volcando estructura para tabla kotex.unidadesventa
 CREATE TABLE IF NOT EXISTS `unidadesventa` (
@@ -276,7 +301,7 @@ CREATE TABLE IF NOT EXISTS `usuarios` (
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `users_email_unique` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Volcando datos para la tabla kotex.usuarios: ~1 rows (aproximadamente)
 INSERT INTO `usuarios` (`id`, `usuario`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES

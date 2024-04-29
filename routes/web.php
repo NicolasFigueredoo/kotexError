@@ -21,6 +21,8 @@ Route::get('/api/aplicaciones', [AplicacionController::class, 'index']);
 
 //productos
 Route::get('/api/obtenerProductos', [VariacionesController::class, 'index']);
+Route::get('/api/obtenerProductoName/{name}', [VariacionesController::class, 'obtenerProductosXname']);
+
 Route::get('/api/obtenerProductosDeLinea', [VariacionesController::class, 'getProductosLinea']);
 Route::get('/api/obtenerProductosEspeciales', [VariacionesController::class, 'getProductosEspeciales']);
 Route::get('/api/obtenerProductosDestacados', [VariacionesController::class, 'getProductosDestacados']);
@@ -36,8 +38,10 @@ Route::get('/api/obtenerProductosIdAplicacion/{aplicacionId}', [VariacionesContr
 //categorias
 Route::get('/api/obtenerCategorias', [CategoriaController::class, 'index']);
 
-//enviarCorreo
-Route::post('/enviarCorreo', [EmailsController::class, 'enviarCorreo']);
+//correos
+Route::post('/enviarCorreo', [EmailsController::class, 'enviarCorreoContacto']);
+Route::post('/api/enviarPresupuesto', [EmailsController::class, 'enviarPresupuesto']);
+
 
 //suscripciones
 Route::post('/api/agregarSuscripcion', [SuscripcionController::class, 'agregarSuscripcion']);
@@ -61,3 +65,26 @@ Route::get('/api/getImage/{fileName}', [ImagenController::class, 'getImage']);
 Route::get('/api/obtenerCategoriasHome', [HomeController::class, 'obtenerCategorias']);
 Route::post('/api/updateCategoriaHome', [HomeController::class, 'updateCategoria']);
 Route::get('/api/obtenerCategoriaHome/{idCategoria}', [HomeController::class, 'obtenerCategoriaHome']);
+
+//usuarios
+Route::get('/api/obtenerUsuarios', [UserController::class, 'obtenerUsuarios']);
+Route::get('/api/obtenerIdUsuario/{idUsuario}', [UserController::class, 'obtenerUsuario']);
+Route::post('/api/updateUsuario', [UserController::class, 'update']);
+Route::get('/api/deleteUsuario/{idUsuario}', [UserController::class, 'destroy']);
+
+//suscripciones
+Route::get('/api/obtenerSuscripciones', [HomeController::class, 'obtenerSuscripciones']);
+Route::post('/api/enviarMensajeSub', [EmailsController::class, 'enviarMensajeSub']);
+
+//contactos
+Route::get('/api/obtenerContacto', [HomeController::class, 'obtenerContacto']);
+Route::post('/api/updateContacto', [HomeController::class, 'updateContacto']);
+
+
+//logos
+Route::get('/api/obtenerLogos', [HomeController::class, 'obtenerLogos']);
+
+Route::get('/api/obtenerLogo/{idLogo}', [HomeController::class, 'obtenerLogo']);
+Route::post('/api/updateLogo', [HomeController::class, 'updateLogo']);
+
+

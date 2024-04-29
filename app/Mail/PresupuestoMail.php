@@ -6,7 +6,7 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class ContactoMail extends Mailable
+class PresupuestoMail extends Mailable
 {
     use Queueable, SerializesModels;
 
@@ -15,18 +15,22 @@ class ContactoMail extends Mailable
     public $email;
     public $celular;
     public $mensaje;
+    public $productos;
+    public $archivo;
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($nombre, $apellido, $email,$celular,$mensaje )
+    public function __construct($nombre, $apellido, $email,$celular,$mensaje, $productos, $archivo )
     {
         $this->nombre = $nombre;
         $this->apellido = $apellido;
         $this->email = $email;
         $this->celular = $celular;
         $this->mensaje = $mensaje;
+        $this->productos = $productos;
+        $this->archivo = $archivo;
 
     }
 
@@ -37,8 +41,14 @@ class ContactoMail extends Mailable
      */
     public function build()
     {
+   
             return 
-            $this->view('emails.contacto')
-            ->subject('Nuevo mensaje de contacto');
+            $this->view('emails.presupuesto')
+            ->subject('Nuevo mensaje de presupuesto')
+            ->attach($this->archivo->getRealPath(), [
+                'as' => $this->archivo->getClientOriginalName(),
+                'mime' => $this->archivo->getClientMimeType(),
+            ]);
+        
     }
 }

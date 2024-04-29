@@ -7,19 +7,19 @@
 </head>
 <body>
     <p>¡Hola!</p>
-    <p>Has recibido un nuevo mensaje de contacto de {{ $nombre }} {{ $apellido }}</p>
-    <p> <strong>Email: </strong>{{ $email }} <strong>Celular: </strong>{{ $celular }}</p>
-    <p> <strong>Mensaje: </strong> {{ $mensaje }}</p>
+    <p>Has recibido un nuevo mensaje de Kotex:</p>
+    <p>{{ $texto }}</p>
+    <p>Gracias.</p>
 </body>
 
 
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
-body{
-  font-size: 16px;
+p{
+  font-size: 22px;
   color: black;
   font-family: "Montserrat", sans-serif;
-  font-weight: 400;
+  font-weight: 500;
 }
 </style>
 </html>

@@ -7,11 +7,26 @@ export default createStore({
     registros: JSON.parse(localStorage.getItem('registros')) || [],
     mostrarComponente: 0,
     idSliderHome: null,
-    idCategoriaHome: null
+    idCategoriaHome: null,
+    idUsuario: null,
+    idRed: null,
+    idContacto: null,
+    idLogo: null
 
   },
   mutations: {
-
+    setLogoId(state,idLogo){
+      state.idLogo = idLogo
+    },
+    setContactoId(state,idContacto){
+      state.idContacto = idContacto
+    },
+    setRedId(state,idRed){
+      state.idRed = idRed
+    },
+    setUsuarioId(state,idUsuario){
+      state.idUsuario = idUsuario
+    },
     setCategoriaIdComponent(state,idCategoriaHome){
       state.idCategoriaHome = idCategoriaHome
     },
@@ -40,10 +55,21 @@ export default createStore({
         state.selectedAplicacionId = aplicacionId;
       }
   },
-  actions: {
-    // Aquí defines las acciones para realizar operaciones asíncronas
-  },
+ 
   getters: {
+
+    getIdLogo(state) {
+      return state.idLogo;
+    },
+    getIdContacto(state) {
+      return state.idContacto;
+    },
+    getIdRed(state) {
+      return state.idRed;
+    },
+    getIdUsuario(state) {
+      return state.idUsuario;
+    },
     getidCategoriaHome(state) {
       return state.idCategoriaHome;
     },
